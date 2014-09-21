@@ -21,6 +21,21 @@ namespace condominios.Entidade
         public int Qtd_Apt { get; set; }
         public float Valor_agua { get; set; }
         public float Valor_luz { get; set; }
-        public float Valor_gas { get; set; }        
+        public float Valor_gas { get; set; }
+
+        public bool Adicionar()
+        {
+            return this.condominioDAO.Adicionar(this);
+        }
+
+        public bool Editar()
+        {
+            return this.condominioDAO.Editar(this);
+        }
+
+        public bool Excluir()
+        {
+            return this.condominioDAO.Excluir(this.id);
+        }
     }
 }

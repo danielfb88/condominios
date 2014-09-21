@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using condominios.Conexao;
+using System.Text;
 
 namespace condominios.DAO
 {
@@ -27,6 +28,18 @@ namespace condominios.DAO
         public DataTable GetLista(String query)
         {
             return Conn.GetInstance().Fetch(query);
+        }
+
+        public bool Excluir(int id)
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("DELETE FROM ");
+            builder.Append(this.TableName + " ");
+            builder.Append("WHERE ");
+            builder.Append("id = " + id);
+            builder.Append(";");
+
+            return this.update(builder.ToString());
         }
     }
 }

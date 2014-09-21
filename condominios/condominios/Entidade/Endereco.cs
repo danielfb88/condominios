@@ -17,12 +17,27 @@ namespace condominios.Entidade
         private String logradouro;
         private String complemento;
 
-        public int id { get; set; }
+        public int Id { get; set; }
         public String Cidade { get; set; }
         public String Estado { get; set; }
         public String Numero { get; set; }
         public String Bairro { get; set; }
         public String Logradouro { get; set; }
         public String Complemento { get; set; }
+
+        public bool Adicionar()
+        {
+            return this.enderecoDAO.Adicionar(this);
+        }
+
+        public bool Editar()
+        {
+            return this.enderecoDAO.Editar(this);
+        }
+
+        public bool Excluir()
+        {
+            return this.enderecoDAO.Excluir(this.id);
+        }
     }
 }
