@@ -36,9 +36,9 @@ namespace condominios.DAO
 
             builder.Append(sindico.Id_endereco + ", ");
             builder.Append(sindico.Id_condominio + ", ");
-            builder.Append(sindico.Nome + ", ");
-            builder.Append(sindico.Cpf + ", ");
-            builder.Append(sindico.Rg + " ");
+            builder.Append("'" + sindico.Nome + "', ");
+            builder.Append("'" + sindico.Cpf + "', ");
+            builder.Append("'" + sindico.Rg + "' ");
 
             builder.Append("');");
 
@@ -51,10 +51,24 @@ namespace condominios.DAO
             builder.Append("UPDATE ");
             builder.Append(this.TableName + " ");
             builder.Append("SET ");
-            builder.Append("nome = '");
-            builder.Append(this.turma.Nome + "' ");
+            
+            builder.Append("id_endereco = ");
+            builder.Append(sindico.Id_endereco + ", ");
+
+            builder.Append("id_condominio = ");
+            builder.Append(sindico.Id_condominio + ", ");
+
+            builder.Append("nome = ");
+            builder.Append("'" + sindico.Nome + "', ");
+
+            builder.Append("cpf = "); 
+            builder.Append("'" + sindico.Cpf + "', ");
+
+            builder.Append("rg = ");
+            builder.Append("'" + sindico.Rg + "' ");
+
             builder.Append("WHERE ");
-            builder.Append("id = " + this.turma.Id);
+            builder.Append("id = " + sindico.Id);
             builder.Append(";");
 
             return this.update(builder.ToString());

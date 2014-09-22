@@ -18,6 +18,7 @@ namespace condominios.Entidade
 
         public int Id { get; set; }
         public int Id_condominio { get; set; }
+        public String Nome { get; set; }
         public String Cpf { get; set; }
         public String Rg { get; set; }
         public int Numero_apt { get; set; }
