@@ -35,5 +35,12 @@ namespace condominios.Entidade
         {
             return this.condominioDAO.Excluir(Id);
         }
+
+        public String UltimaQuery()
+        {
+            return condominioDAO.LastQuery;
+        }
+
+        
     }
 }

@@ -22,6 +22,7 @@ namespace condominios.DAO
 
             builder.Append("( ");
 
+            builder.Append("id, ");
             builder.Append("id_endereco, ");
             builder.Append("id_condominio, ");
             builder.Append("nome, ");
@@ -32,17 +33,18 @@ namespace condominios.DAO
 
             builder.Append("VALUES ");
 
-            builder.Append("('");
+            builder.Append("(");
 
+            builder.Append(sindico.Id + ", ");
             builder.Append(sindico.Id_endereco + ", ");
             builder.Append(sindico.Id_condominio + ", ");
             builder.Append("'" + sindico.Nome + "', ");
             builder.Append("'" + sindico.Cpf + "', ");
             builder.Append("'" + sindico.Rg + "' ");
 
-            builder.Append("');");
+            builder.Append(");");
 
-            return this.update(builder.ToString());
+            return this.Update(builder.ToString());
         }
 
         public bool Editar(Sindico sindico)
@@ -71,7 +73,7 @@ namespace condominios.DAO
             builder.Append("id = " + sindico.Id);
             builder.Append(";");
 
-            return this.update(builder.ToString());
+            return this.Update(builder.ToString());
         }
     }
 }

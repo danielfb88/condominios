@@ -1,5 +1,5 @@
 ﻿CREATE TABLE endereco (
-	id SERIAL PRIMARY KEY,
+	id INT PRIMARY KEY,
 	cidade VARCHAR NOT NULL,
 	estado CHAR(2) NOT NULL,
 	cep VARCHAR NOT NULL,
@@ -10,7 +10,7 @@
 );
 
 CREATE TABLE condominio (
-	id SERIAL PRIMARY KEY,
+	id INT PRIMARY KEY,
 	id_endereco INTEGER NOT NULL,
 	qtd_apt INT NOT NULL,
 	valor_agua REAL,
@@ -20,7 +20,7 @@ CREATE TABLE condominio (
 ALTER TABLE condominio ADD CONSTRAINT fk_condominio_endereco FOREIGN KEY (id_endereco) REFERENCES endereco (id);
 
 CREATE TABLE funcionario (
-	id SERIAL PRIMARY KEY,
+	id INT PRIMARY KEY,
 	id_endereco INTEGER NOT NULL,
 	id_condominio INTEGER NOT NULL,
 	nome VARCHAR NOT NULL,
@@ -31,7 +31,7 @@ ALTER TABLE funcionario ADD CONSTRAINT fk_funcionario_condominio FOREIGN KEY (id
 ALTER TABLE funcionario ADD CONSTRAINT fk_funcionario_endereco FOREIGN KEY (id_endereco) REFERENCES endereco (id);
 
 CREATE TABLE sindico (
-	id SERIAL PRIMARY KEY,
+	id INT PRIMARY KEY,
 	id_endereco INTEGER NOT NULL,
 	id_condominio INTEGER NOT NULL,
 	nome VARCHAR NOT NULL,
@@ -42,7 +42,7 @@ ALTER TABLE sindico ADD CONSTRAINT fk_sindico_endereco FOREIGN KEY (id_endereco)
 ALTER TABLE sindico ADD CONSTRAINT fk_sindico_condominio FOREIGN KEY (id_condominio) REFERENCES condominio (id);
 
 CREATE TABLE morador (
-	id SERIAL PRIMARY KEY,
+	id INT PRIMARY KEY,
 	id_condominio INTEGER NOT NULL,
 	nome VARCHAR NOT NULL,
 	cpf VARCHAR NOT NULL,

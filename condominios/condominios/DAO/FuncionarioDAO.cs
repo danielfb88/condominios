@@ -22,6 +22,7 @@ namespace condominios.DAO
 
             builder.Append("( ");
 
+            builder.Append("id, ");
             builder.Append("id_endereco, ");
             builder.Append("id_condominio, ");
             builder.Append("nome, ");
@@ -32,17 +33,18 @@ namespace condominios.DAO
 
             builder.Append("VALUES ");
 
-            builder.Append("('");
+            builder.Append("(");
 
+            builder.Append(funcionario.Id + ", ");
             builder.Append(funcionario.Id_endereco + ", ");
             builder.Append(funcionario.Id_condominio + ", ");
             builder.Append("'" + funcionario.Nome + "', ");
             builder.Append("'" + funcionario.Cpf + "', ");
             builder.Append("'" + funcionario.Rg + "' ");
 
-            builder.Append("');");
+            builder.Append(");");
 
-            return this.update(builder.ToString());
+            return this.Update(builder.ToString());
         }
 
         public bool Editar(Funcionario funcionario)
@@ -71,7 +73,7 @@ namespace condominios.DAO
             builder.Append("id = " + funcionario.Id);
             builder.Append(";");
 
-            return this.update(builder.ToString());
+            return this.Update(builder.ToString());
         }
     }
 }

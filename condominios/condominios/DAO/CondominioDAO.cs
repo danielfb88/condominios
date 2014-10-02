@@ -22,6 +22,7 @@ namespace condominios.DAO
 
             builder.Append("( ");
 
+            builder.Append("id, ");
             builder.Append("id_endereco, ");
             builder.Append("qtd_apt, ");
             builder.Append("valor_agua, ");
@@ -32,17 +33,18 @@ namespace condominios.DAO
 
             builder.Append("VALUES ");
 
-            builder.Append("('");
+            builder.Append("(");
 
+            builder.Append(condominio.Id + ", ");
             builder.Append(condominio.Id_endereco + ", ");
             builder.Append(condominio.Qtd_Apt + ", ");
             builder.Append(condominio.Valor_agua + ", ");
             builder.Append(condominio.Valor_luz + ", ");
             builder.Append(condominio.Valor_gas + " ");
 
-            builder.Append("');");
+            builder.Append(");");
 
-            return this.update(builder.ToString());
+            return this.Update(builder.ToString());
         }
 
         public bool Editar(Condominio condominio)
@@ -71,7 +73,7 @@ namespace condominios.DAO
             builder.Append("id = " + condominio.Id);
             builder.Append(";");
 
-            return this.update(builder.ToString());
+            return this.Update(builder.ToString());
         }
     }
 }

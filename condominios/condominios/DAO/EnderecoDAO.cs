@@ -22,6 +22,7 @@ namespace condominios.DAO
 
             builder.Append("( ");
 
+            builder.Append("id, ");
             builder.Append("cidade, ");
             builder.Append("estado, ");
             builder.Append("cep, ");
@@ -34,8 +35,9 @@ namespace condominios.DAO
 
             builder.Append("VALUES ");
 
-            builder.Append("('");
+            builder.Append("(");
 
+            builder.Append(endereco.Id + ", ");
             builder.Append("'" + endereco.Cidade + "', ");
             builder.Append("'" + endereco.Estado + "', ");
             builder.Append("'" + endereco.Cep + "', ");
@@ -44,9 +46,9 @@ namespace condominios.DAO
             builder.Append("'" + endereco.Logradouro + "', ");
             builder.Append("'" + endereco.Complemento + "' ");
 
-            builder.Append("');");
+            builder.Append(");");
 
-            return this.update(builder.ToString());
+            return this.Update(builder.ToString());
         }
 
         public bool Editar(Endereco endereco)
@@ -81,7 +83,7 @@ namespace condominios.DAO
             builder.Append("id = " + endereco.Id);
             builder.Append(";");
 
-            return this.update(builder.ToString());
+            return this.Update(builder.ToString());
         }
     }
 }

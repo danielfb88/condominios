@@ -21,6 +21,7 @@ namespace condominios.DAO
 
             builder.Append("( ");
 
+            builder.Append("id, ");
             builder.Append("id_condominio, ");
             builder.Append("nome, ");
             builder.Append("cpf, ");
@@ -31,17 +32,18 @@ namespace condominios.DAO
 
             builder.Append("VALUES ");
 
-            builder.Append("('");
+            builder.Append("(");
 
+            builder.Append(morador.Id + ", ");
             builder.Append(morador.Id_condominio + ", ");
             builder.Append("'" + morador.Nome + "', ");
             builder.Append("'" + morador.Cpf + "', ");
             builder.Append("'" + morador.Rg + "', ");
             builder.Append(morador.Numero_apt + " ");
 
-            builder.Append("');");
+            builder.Append(");");
 
-            return this.update(builder.ToString());
+            return this.Update(builder.ToString());
         }
 
         public bool Editar(Morador morador)
@@ -70,7 +72,7 @@ namespace condominios.DAO
             builder.Append("id = " + morador.Id);
             builder.Append(";");
 
-            return this.update(builder.ToString());
+            return this.Update(builder.ToString());
         }
     }
 }
