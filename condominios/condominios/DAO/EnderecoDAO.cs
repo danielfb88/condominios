@@ -49,30 +49,36 @@ namespace condominios.DAO
             return this.update(builder.ToString());
         }
 
-        public bool Editar(Condominio condominio)
+        public bool Editar(Endereco endereco)
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("UPDATE ");
             builder.Append(this.TableName + " ");
             builder.Append("SET ");
 
-            builder.Append("id_endereco = ");
-            builder.Append(condominio.Id_endereco + ", ");
+            builder.Append("cidade = '");
+            builder.Append(endereco.Cidade + "', ");
 
-            builder.Append("qtd_apt = ");
-            builder.Append(condominio.Qtd_Apt + ", ");
+            builder.Append("estado = '");
+            builder.Append(endereco.Estado + "', ");
 
-            builder.Append("valor_agua = ");
-            builder.Append(condominio.Valor_agua + ", ");
+            builder.Append("cep = '");
+            builder.Append(endereco.Cep + "', ");
 
-            builder.Append("valor_luz = ");
-            builder.Append(condominio.Valor_luz + ", ");
+            builder.Append("bairro = '");
+            builder.Append(endereco.Bairro + "', ");
 
-            builder.Append("valor_gas = ");
-            builder.Append(condominio.Valor_gas + " ");
+            builder.Append("numero = '");
+            builder.Append(endereco.Numero + "', ");
+
+            builder.Append("logradouro = '");
+            builder.Append(endereco.Logradouro + "', ");
+
+            builder.Append("complemento = '");
+            builder.Append(endereco.Complemento + "' ");
 
             builder.Append("WHERE ");
-            builder.Append("id = " + condominio.Id);
+            builder.Append("id = " + endereco.Id);
             builder.Append(";");
 
             return this.update(builder.ToString());

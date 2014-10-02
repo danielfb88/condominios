@@ -9,19 +9,17 @@ namespace condominios.Entidade
     public class Condominio
     {
         private CondominioDAO condominioDAO;
-        private int id;
-        private int id_endereco;
-        private int qtd_apt;
-        private float valor_agua;
-        private float valor_luz;
-        private float valor_gas;
-
         public int Id { get; set; }
         public int Id_endereco { get; set; }
         public int Qtd_Apt { get; set; }
         public float Valor_agua { get; set; }
         public float Valor_luz { get; set; }
         public float Valor_gas { get; set; }
+
+        public Condominio()
+        {
+            condominioDAO = new CondominioDAO();
+        }
 
         public bool Adicionar()
         {
@@ -35,7 +33,7 @@ namespace condominios.Entidade
 
         public bool Excluir()
         {
-            return this.condominioDAO.Excluir(this.id);
+            return this.condominioDAO.Excluir(Id);
         }
     }
 }

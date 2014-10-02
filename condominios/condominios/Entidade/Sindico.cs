@@ -8,12 +8,6 @@ namespace condominios.Entidade
 {
     public class Sindico
     {
-        private int id;
-        private int id_endereco;
-        private int id_condominio;
-        private String nome;
-        private String cpf;
-        private String rg;
         private SindicoDAO sindicoDAO;
 
         public int Id { get; set; }
@@ -22,6 +16,11 @@ namespace condominios.Entidade
         public String Nome { get; set; }
         public String Cpf { get; set; }
         public String Rg { get; set; }
+
+        public Sindico()
+        {
+            sindicoDAO = new SindicoDAO();
+        }
 
         public bool Adicionar()
         {
@@ -35,7 +34,7 @@ namespace condominios.Entidade
 
         public bool Excluir()
         {
-            return this.sindicoDAO.Excluir(this.id);
+            return this.sindicoDAO.Excluir(Id);
         }
     }
 }

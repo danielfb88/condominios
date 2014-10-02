@@ -8,12 +8,6 @@ namespace condominios.Entidade
 {
     public class Morador
     {
-        private int id;
-        private int id_condominio;
-        private String nome;
-        private String cpf;
-        private String rg;
-        private int numero_apt;
         private MoradorDAO moradorDAO;
 
         public int Id { get; set; }
@@ -22,6 +16,11 @@ namespace condominios.Entidade
         public String Cpf { get; set; }
         public String Rg { get; set; }
         public int Numero_apt { get; set; }
+
+        public Morador()
+        {
+            moradorDAO = new MoradorDAO();
+        }
 
         public bool Adicionar()
         {
@@ -35,7 +34,7 @@ namespace condominios.Entidade
 
         public bool Excluir()
         {
-            return this.moradorDAO.Excluir(this.id);
+            return this.moradorDAO.Excluir(Id);
         }
     }
 }

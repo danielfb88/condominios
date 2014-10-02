@@ -8,12 +8,6 @@ namespace condominios.Entidade
 {
     public class Funcionario
     {
-        private int id;
-        private int id_endereco;
-        private int id_condominio;
-        private String nome;
-        private String cpf;
-        private String rg;
         private FuncionarioDAO funcionarioDAO;
 
         public int Id { get; set; }
@@ -22,6 +16,11 @@ namespace condominios.Entidade
         public String Nome { get; set; }
         public String Cpf { get; set; }
         public String Rg { get; set; }
+
+        public Funcionario()
+        {
+            funcionarioDAO = new FuncionarioDAO();
+        }
 
         public bool Adicionar()
         {
@@ -35,7 +34,7 @@ namespace condominios.Entidade
 
         public bool Excluir()
         {
-            return this.funcionarioDAO.Excluir(this.id);
+            return this.funcionarioDAO.Excluir(Id);
         }
     }
 }

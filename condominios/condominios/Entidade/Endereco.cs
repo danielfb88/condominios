@@ -9,14 +9,6 @@ namespace condominios.Entidade
     public class Endereco
     {
         private EnderecoDAO enderecoDAO;
-        private int id;
-        private String cidade;
-        private String estado;
-        private String numero;
-        private String bairro;
-        private String logradouro;
-        private String complemento;
-        private String cep;
 
         public int Id { get; set; }
         public String Cidade { get; set; }
@@ -26,6 +18,11 @@ namespace condominios.Entidade
         public String Cep { get; set; }
         public String Logradouro { get; set; }
         public String Complemento { get; set; }
+
+        public Endereco()
+        {
+            enderecoDAO = new EnderecoDAO();
+        }
 
         public bool Adicionar()
         {
@@ -39,7 +36,7 @@ namespace condominios.Entidade
 
         public bool Excluir()
         {
-            return this.enderecoDAO.Excluir(this.id);
+            return this.enderecoDAO.Excluir(Id);
         }
     }
 }
