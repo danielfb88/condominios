@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using condominios.Entidade;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace condominios.Tests
 {
@@ -25,6 +27,22 @@ namespace condominios.Tests
             endereco.Complemento = "Perto do posto Ipiranha";
 
             Assert.IsTrue(endereco.Adicionar());
+        }
+
+        [TestMethod]
+        public void BuscaEnderecoPorId()
+        {
+            Endereco endereco = new Endereco().GetPorId(1);
+
+            Assert.Equals("Salvador", endereco.Cidade);
+        }
+
+        [TestMethod]
+        public void ListarEndereco()
+        {
+            List<Endereco> listEndereco = new Endereco().GetTodos();
+
+            Assert.IsTrue(listEndereco.Count == 1);
         }
 
         [TestMethod]

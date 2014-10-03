@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Npgsql;
+using System.Data.SqlClient;
 
 namespace condominios.Conexao
 {
@@ -56,18 +57,16 @@ namespace condominios.Conexao
             return retornoOk;
         }
 
-        public DataTable Fetch(String query)
+        public NpgsqlDataReader Fetch(String query)
         {
-            DataTable dataTable = new DataTable();
+            NpgsqlDataReader dataReader = null;
             try
             {
                 using (conn = new NpgsqlConnection(DBSettings.GetStringConnection()))
                 {
                     conn.Open();
-                    using (NpgsqlDataAdapter Adpt = new NpgsqlDataAdapter(query, conn))
-                    {
-                        Adpt.Fill(dataTable);
-                    }
+                    NpgsqlCommand command = new NpgsqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
                 }
             }
             catch (NpgsqlException ex)
@@ -83,7 +82,7 @@ namespace condominios.Conexao
                 conn.Close();
             }
 
-            return dataTable;
+            return dataReader;
         }
     }
 }

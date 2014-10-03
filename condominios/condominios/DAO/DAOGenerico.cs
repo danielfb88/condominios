@@ -5,14 +5,13 @@ using System.Web;
 using System.Data;
 using condominios.Conexao;
 using System.Text;
+using Npgsql;
 
 namespace condominios.DAO
 {
     public abstract class DAOGenerico
     {
-        private String tableName;
         public String LastQuery { get; set; }
-
         public String TableName { get; set; }
 
         private bool update(String query)
@@ -20,14 +19,21 @@ namespace condominios.DAO
             return Conn.GetInstance().Update(query);
         }
 
-        public DataTable GetTodos()
+        public NpgsqlDataReader GetTodos()
         {
-            String query = "SELECT * FROM " + this.tableName + ";";
+            String query = "SELECT * FROM " + this.TableName + ";";
             this.LastQuery = query;
             return Conn.GetInstance().Fetch(query);
         }
 
-        public DataTable GetLista(String query)
+        public NpgsqlDataReader GetPorId(int id)
+        {
+            String query = "SELECT * FROM " + this.TableName + " WHERE id = " + id + ";";
+            this.LastQuery = query;
+            return Conn.GetInstance().Fetch(query);
+        }
+
+        public NpgsqlDataReader GetLista(String query)
         {
             this.LastQuery = query;
             return Conn.GetInstance().Fetch(query);
