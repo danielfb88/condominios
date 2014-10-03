@@ -92,14 +92,18 @@ namespace condominios.DAO
         {
             NpgsqlDataReader dataReader = base.GetPorId(id);
             Endereco endereco = new Endereco();
-            endereco.Id = (int)dataReader[0];
-            endereco.Cidade = (String)dataReader[1];
-            endereco.Estado = (String)dataReader[2];
-            endereco.Cep = (String)dataReader[3];
-            endereco.Bairro = (String)dataReader[4];
-            endereco.Numero = (String)dataReader[5];
-            endereco.Logradouro = (String)dataReader[6];
-            endereco.Complemento = (String)dataReader[7];
+
+            if (dataReader.HasRows && dataReader.Read())
+            {
+                endereco.Id = (int)dataReader[0];
+                endereco.Cidade = (String)dataReader[1];
+                endereco.Estado = (String)dataReader[2];
+                endereco.Cep = (String)dataReader[3];
+                endereco.Bairro = (String)dataReader[4];
+                endereco.Numero = (String)dataReader[5];
+                endereco.Logradouro = (String)dataReader[6];
+                endereco.Complemento = (String)dataReader[7];
+            }
 
             return endereco;
         }
@@ -109,19 +113,22 @@ namespace condominios.DAO
             List<Endereco> listEndereco = new List<Endereco>();
 
             NpgsqlDataReader dataReader = base.GetTodos();
-            while (dataReader.Read())
+            if (dataReader.HasRows)
             {
-                Endereco endereco = new Endereco();
-                endereco.Id = (int)dataReader[0];
-                endereco.Cidade = (String)dataReader[1];
-                endereco.Estado = (String)dataReader[2];
-                endereco.Cep = (String)dataReader[3];
-                endereco.Bairro = (String)dataReader[4];
-                endereco.Numero = (String)dataReader[5];
-                endereco.Logradouro = (String)dataReader[6];
-                endereco.Complemento = (String)dataReader[7];
+                while (dataReader.Read()) 
+                {
+                    Endereco endereco = new Endereco();
+                    endereco.Id = (int)dataReader.GetValue(0);
+                    endereco.Cidade = (String)dataReader[1];
+                    endereco.Estado = (String)dataReader[2];
+                    endereco.Cep = (String)dataReader[3];
+                    endereco.Bairro = (String)dataReader[4];
+                    endereco.Numero = (String)dataReader[5];
+                    endereco.Logradouro = (String)dataReader[6];
+                    endereco.Complemento = (String)dataReader[7];
 
-                listEndereco.Add(endereco);
+                    listEndereco.Add(endereco);
+                } while (dataReader.Read());
             }
 
             return listEndereco;

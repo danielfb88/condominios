@@ -62,12 +62,12 @@ namespace condominios.Conexao
             NpgsqlDataReader dataReader = null;
             try
             {
-                using (conn = new NpgsqlConnection(DBSettings.GetStringConnection()))
-                {
+                conn = new NpgsqlConnection(DBSettings.GetStringConnection());
+                
                     conn.Open();
                     NpgsqlCommand command = new NpgsqlCommand(query, conn);
                     dataReader = command.ExecuteReader();
-                }
+                
             }
             catch (NpgsqlException ex)
             {
@@ -79,7 +79,7 @@ namespace condominios.Conexao
             }
             finally
             {
-                conn.Close();
+                //conn.Close();
             }
 
             return dataReader;

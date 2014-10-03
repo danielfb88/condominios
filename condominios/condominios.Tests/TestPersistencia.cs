@@ -34,7 +34,7 @@ namespace condominios.Tests
         {
             Endereco endereco = new Endereco().GetPorId(1);
 
-            Assert.Equals("Salvador", endereco.Cidade);
+            Assert.AreEqual("Salvador", endereco.Cidade);
         }
 
         [TestMethod]
