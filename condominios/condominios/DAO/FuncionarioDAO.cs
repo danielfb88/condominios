@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using condominios.Entidade;
 using System.Text;
+using Npgsql;
 
 namespace condominios.DAO
 {
@@ -74,6 +75,48 @@ namespace condominios.DAO
             builder.Append(";");
 
             return this.Update(builder.ToString());
+        }
+
+        public Funcionario GetPorId(int id)
+        {
+            NpgsqlDataReader dataReader = base.GetPorId(id);
+            Funcionario funcionario = new Funcionario();
+
+            if (dataReader.HasRows && dataReader.Read())
+            {
+                funcionario.Id = (int)dataReader[0];
+                funcionario.Id_endereco = (int)dataReader[1];
+                funcionario.Id_condominio = (int)dataReader[2];
+                funcionario.Nome = (String)dataReader[3];
+                funcionario.Cpf = (String)dataReader[4];
+                funcionario.Rg = (String)dataReader[5];
+            }
+
+            return funcionario;
+        }
+
+        public List<Funcionario> GetTodos()
+        {
+            List<Funcionario> listFuncionario = new List<Funcionario>();
+
+            NpgsqlDataReader dataReader = base.GetTodos();
+            if (dataReader.HasRows)
+            {
+                while (dataReader.Read())
+                {
+                    Funcionario funcionario = new Funcionario();
+                    funcionario.Id = (int)dataReader[0];
+                    funcionario.Id_endereco = (int)dataReader[1];
+                    funcionario.Id_condominio = (int)dataReader[2];
+                    funcionario.Nome = (String)dataReader[3];
+                    funcionario.Cpf = (String)dataReader[4];
+                    funcionario.Rg = (String)dataReader[5];
+
+                    listFuncionario.Add(funcionario);
+                } 
+            }
+
+            return listFuncionario;
         }
     }
 }

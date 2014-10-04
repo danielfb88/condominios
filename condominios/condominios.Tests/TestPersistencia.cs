@@ -30,22 +30,6 @@ namespace condominios.Tests
         }
 
         [TestMethod]
-        public void BuscaEnderecoPorId()
-        {
-            Endereco endereco = new Endereco().GetPorId(1);
-
-            Assert.AreEqual("Salvador", endereco.Cidade);
-        }
-
-        [TestMethod]
-        public void ListarEndereco()
-        {
-            List<Endereco> listEndereco = new Endereco().GetTodos();
-
-            Assert.IsTrue(listEndereco.Count == 1);
-        }
-
-        [TestMethod]
         public void EditarEndereco()
         {
             Endereco endereco = new Endereco();
@@ -60,7 +44,23 @@ namespace condominios.Tests
 
             Assert.IsTrue(endereco.Editar());
         }
-        
+
+        [TestMethod]
+        public void BuscaEnderecoPorId()
+        {
+            Endereco endereco = new Endereco().GetPorId(1);
+
+            Assert.AreEqual("Sao Paulo", endereco.Cidade);
+        }
+
+        [TestMethod]
+        public void ListarEndereco()
+        {
+            List<Endereco> listEndereco = new Endereco().GetTodos();
+
+            Assert.IsTrue(listEndereco.Count == 1);
+        }
+
         /*
          * Condominio
          * */
@@ -86,11 +86,27 @@ namespace condominios.Tests
             condominio.Id = 1;
             condominio.Id_endereco = 1;
             condominio.Qtd_Apt = 40;
-            condominio.Valor_agua = 30F;
-            condominio.Valor_gas = 12F;
-            condominio.Valor_luz = 40F;
+            condominio.Valor_agua = 30;
+            condominio.Valor_gas = 12;
+            condominio.Valor_luz = 40;
 
             Assert.IsTrue(condominio.Editar());
+        }
+
+        [TestMethod]
+        public void BuscaCondominioPorId()
+        {
+            Condominio condominio = new Condominio().GetPorId(1);
+
+            Assert.AreEqual(40, condominio.Qtd_Apt);
+        }
+
+        [TestMethod]
+        public void ListarCondominio()
+        {
+            List<Condominio> listCondominio = new Condominio().GetTodos();
+
+            Assert.IsTrue(listCondominio.Count == 1);
         }
 
         /*
@@ -122,6 +138,22 @@ namespace condominios.Tests
             morador.Cpf = "21313131";
 
             Assert.IsTrue(morador.Editar());
+        }
+
+        [TestMethod]
+        public void BuscaMoradorPorId()
+        {
+            Morador morador = new Morador().GetPorId(1);
+
+            Assert.AreEqual("Joao", morador.Nome);
+        }
+
+        [TestMethod]
+        public void ListarMorador()
+        {
+            List<Morador> listMorador = new Morador().GetTodos();
+
+            Assert.IsTrue(listMorador.Count == 1);
         }
 
         [TestMethod]
@@ -165,6 +197,22 @@ namespace condominios.Tests
         }
 
         [TestMethod]
+        public void BuscaFuncionarioPorId()
+        {
+            Funcionario funcionario = new Funcionario().GetPorId(1);
+
+            Assert.AreEqual("12234", funcionario.Rg);
+        }
+
+        [TestMethod]
+        public void ListarFuncionario()
+        {
+            List<Funcionario> listFuncionario = new Funcionario().GetTodos();
+
+            Assert.IsTrue(listFuncionario.Count == 1);
+        }
+
+        [TestMethod]
         public void ExclusaoFuncionario()
         {
             Funcionario funcionario = new Funcionario();
@@ -202,6 +250,22 @@ namespace condominios.Tests
             sindico.Cpf = "657657";
 
             Assert.IsTrue(sindico.Editar());
+        }
+
+        [TestMethod]
+        public void BuscaSindicoPorId()
+        {
+            Sindico sindico = new Sindico().GetPorId(1);
+
+            Assert.AreEqual("5666", sindico.Rg);
+        }
+
+        [TestMethod]
+        public void ListarSindico()
+        {
+            List<Sindico> listSindico = new Sindico().GetTodos();
+
+            Assert.IsTrue(listSindico.Count == 1);
         }
 
         [TestMethod]

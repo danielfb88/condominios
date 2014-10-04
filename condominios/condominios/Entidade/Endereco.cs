@@ -34,6 +34,11 @@ namespace condominios.Entidade
             return this.enderecoDAO.Editar(this);
         }
 
+        public bool Excluir()
+        {
+            return this.enderecoDAO.Excluir(Id);
+        }
+
         public Endereco GetPorId(int id)
         {
             return this.enderecoDAO.GetPorId(id);
@@ -44,9 +49,5 @@ namespace condominios.Entidade
             return this.enderecoDAO.GetTodos();
         }
 
-        public bool Excluir()
-        {
-            return this.enderecoDAO.Excluir(Id);
-        }
     }
 }

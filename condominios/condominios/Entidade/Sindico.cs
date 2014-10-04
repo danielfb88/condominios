@@ -36,5 +36,15 @@ namespace condominios.Entidade
         {
             return this.sindicoDAO.Excluir(Id);
         }
+
+        public Sindico GetPorId(int id)
+        {
+            return this.sindicoDAO.GetPorId(id);
+        }
+
+        public List<Sindico> GetTodos()
+        {
+            return this.sindicoDAO.GetTodos();
+        }    
     }
 }

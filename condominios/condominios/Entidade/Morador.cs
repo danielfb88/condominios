@@ -36,5 +36,15 @@ namespace condominios.Entidade
         {
             return this.moradorDAO.Excluir(Id);
         }
+
+        public Morador GetPorId(int id)
+        {
+            return this.moradorDAO.GetPorId(id);
+        }
+
+        public List<Morador> GetTodos()
+        {
+            return this.moradorDAO.GetTodos();
+        }    
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using condominios.Entidade;
 using System.Text;
+using Npgsql;
 
 namespace condominios.DAO
 {
@@ -74,6 +75,48 @@ namespace condominios.DAO
             builder.Append(";");
 
             return this.Update(builder.ToString());
+        }
+
+        public Condominio GetPorId(int id)
+        {
+            NpgsqlDataReader dataReader = base.GetPorId(id);
+            Condominio condominio = new Condominio();
+
+            if (dataReader.HasRows && dataReader.Read())
+            {
+                condominio.Id = (int)dataReader[0];
+                condominio.Id_endereco = (int)dataReader[1];
+                condominio.Qtd_Apt = (int)dataReader[2];
+                condominio.Valor_agua = (float)dataReader[3];
+                condominio.Valor_luz = (float)dataReader[4];
+                condominio.Valor_gas = (float)dataReader[5];
+            }
+
+            return condominio;
+        }
+
+        public List<Condominio> GetTodos()
+        {
+            List<Condominio> listCondominio = new List<Condominio>();
+
+            NpgsqlDataReader dataReader = base.GetTodos();
+            if (dataReader.HasRows)
+            {
+                while (dataReader.Read())
+                {
+                    Condominio condominio = new Condominio();
+                    condominio.Id = (int)dataReader[0];
+                    condominio.Id_endereco = (int)dataReader[1];
+                    condominio.Qtd_Apt = (int)dataReader[2];
+                    condominio.Valor_agua = (float)dataReader[3];
+                    condominio.Valor_luz = (float)dataReader[4];
+                    condominio.Valor_gas = (float)dataReader[5];
+
+                    listCondominio.Add(condominio);
+                } 
+            }
+
+            return listCondominio;
         }
     }
 }

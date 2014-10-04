@@ -19,21 +19,21 @@ namespace condominios.DAO
             return Conn.GetInstance().Update(query);
         }
 
-        public NpgsqlDataReader GetTodos()
+        protected NpgsqlDataReader GetTodos()
         {
             String query = "SELECT * FROM " + this.TableName + ";";
             this.LastQuery = query;
             return Conn.GetInstance().Fetch(query);
         }
 
-        public NpgsqlDataReader GetPorId(int id)
+        protected NpgsqlDataReader GetPorId(int id)
         {
             String query = "SELECT * FROM " + this.TableName + " WHERE id = " + id + ";";
             this.LastQuery = query;
             return Conn.GetInstance().Fetch(query);
         }
 
-        public NpgsqlDataReader GetLista(String query)
+        protected NpgsqlDataReader GetLista(String query)
         {
             this.LastQuery = query;
             return Conn.GetInstance().Fetch(query);

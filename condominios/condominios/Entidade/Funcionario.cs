@@ -36,5 +36,15 @@ namespace condominios.Entidade
         {
             return this.funcionarioDAO.Excluir(Id);
         }
+
+        public Funcionario GetPorId(int id)
+        {
+            return this.funcionarioDAO.GetPorId(id);
+        }
+
+        public List<Funcionario> GetTodos()
+        {
+            return this.funcionarioDAO.GetTodos();
+        }     
     }
 }

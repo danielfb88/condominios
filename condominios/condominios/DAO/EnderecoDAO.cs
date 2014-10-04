@@ -128,7 +128,7 @@ namespace condominios.DAO
                     endereco.Complemento = (String)dataReader[7];
 
                     listEndereco.Add(endereco);
-                } while (dataReader.Read());
+                } 
             }
 
             return listEndereco;

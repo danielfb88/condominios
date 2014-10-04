@@ -1,4 +1,5 @@
 ﻿using condominios.Entidade;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,6 +75,48 @@ namespace condominios.DAO
             builder.Append(";");
 
             return this.Update(builder.ToString());
+        }
+
+        public Sindico GetPorId(int id)
+        {
+            NpgsqlDataReader dataReader = base.GetPorId(id);
+            Sindico sindico = new Sindico();
+
+            if (dataReader.HasRows && dataReader.Read())
+            {
+                sindico.Id = (int)dataReader[0];
+                sindico.Id_endereco = (int)dataReader[1];
+                sindico.Id_condominio = (int)dataReader[2];
+                sindico.Nome = (String)dataReader[3];
+                sindico.Cpf = (String)dataReader[4];
+                sindico.Rg = (String)dataReader[5];
+            }
+
+            return sindico;
+        }
+
+        public List<Sindico> GetTodos()
+        {
+            List<Sindico> listSindico = new List<Sindico>();
+
+            NpgsqlDataReader dataReader = base.GetTodos();
+            if (dataReader.HasRows)
+            {
+                while (dataReader.Read())
+                {
+                    Sindico sindico = new Sindico();
+                    sindico.Id = (int)dataReader[0];
+                    sindico.Id_endereco = (int)dataReader[1];
+                    sindico.Id_condominio = (int)dataReader[2];
+                    sindico.Nome = (String)dataReader[3];
+                    sindico.Cpf = (String)dataReader[4];
+                    sindico.Rg = (String)dataReader[5];
+
+                    listSindico.Add(sindico);
+                }
+            }
+
+            return listSindico;
         }
     }
 }

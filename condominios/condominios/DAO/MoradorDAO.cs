@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using condominios.Entidade;
 using System.Text;
+using Npgsql;
 
 namespace condominios.DAO
 {
@@ -73,6 +74,48 @@ namespace condominios.DAO
             builder.Append(";");
 
             return this.Update(builder.ToString());
+        }
+
+        public Morador GetPorId(int id)
+        {
+            NpgsqlDataReader dataReader = base.GetPorId(id);
+            Morador morador = new Morador();
+
+            if (dataReader.HasRows && dataReader.Read())
+            {
+                morador.Id = (int)dataReader[0];
+                morador.Id_condominio = (int)dataReader[1];
+                morador.Nome = (String)dataReader[2];
+                morador.Cpf = (String)dataReader[3];
+                morador.Rg = (String)dataReader[4];
+                morador.Numero_apt = (int)dataReader[5];
+            }
+
+            return morador;
+        }
+
+        public List<Morador> GetTodos()
+        {
+            List<Morador> listMorador = new List<Morador>();
+
+            NpgsqlDataReader dataReader = base.GetTodos();
+            if (dataReader.HasRows)
+            {
+                while (dataReader.Read())
+                {
+                    Morador morador = new Morador();
+                    morador.Id = (int)dataReader[0];
+                    morador.Id_condominio = (int)dataReader[1];
+                    morador.Nome = (String)dataReader[2];
+                    morador.Cpf = (String)dataReader[3];
+                    morador.Rg = (String)dataReader[4];
+                    morador.Numero_apt = (int)dataReader[5];
+
+                    listMorador.Add(morador);
+                }
+            }
+
+            return listMorador;
         }
     }
 }

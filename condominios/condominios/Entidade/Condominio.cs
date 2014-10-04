@@ -12,9 +12,9 @@ namespace condominios.Entidade
         public int Id { get; set; }
         public int Id_endereco { get; set; }
         public int Qtd_Apt { get; set; }
-        public float Valor_agua { get; set; }
-        public float Valor_luz { get; set; }
-        public float Valor_gas { get; set; }
+        public double Valor_agua { get; set; }
+        public double Valor_luz { get; set; }
+        public double Valor_gas { get; set; }
 
         public Condominio()
         {
@@ -36,11 +36,14 @@ namespace condominios.Entidade
             return this.condominioDAO.Excluir(Id);
         }
 
-        public String UltimaQuery()
+        public Condominio GetPorId(int id)
         {
-            return condominioDAO.LastQuery;
+            return this.condominioDAO.GetPorId(id);
         }
 
-        
+        public List<Condominio> GetTodos()
+        {
+            return this.condominioDAO.GetTodos();
+        }        
     }
 }
