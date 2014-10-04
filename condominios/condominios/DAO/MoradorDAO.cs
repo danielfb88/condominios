@@ -27,7 +27,8 @@ namespace condominios.DAO
             builder.Append("nome, ");
             builder.Append("cpf, ");
             builder.Append("rg, ");
-            builder.Append("numero_apt ");
+            builder.Append("numero_apt, ");
+            builder.Append("adimplente ");
 
             builder.Append(") ");
 
@@ -40,7 +41,8 @@ namespace condominios.DAO
             builder.Append("'" + morador.Nome + "', ");
             builder.Append("'" + morador.Cpf + "', ");
             builder.Append("'" + morador.Rg + "', ");
-            builder.Append(morador.Numero_apt + " ");
+            builder.Append(morador.Numero_apt + ", ");
+            builder.Append(((morador.Adimplente == true) ? 1 : 0) + " ");
 
             builder.Append(");");
 
@@ -67,7 +69,10 @@ namespace condominios.DAO
             builder.Append("'" + morador.Rg + "', ");
 
             builder.Append("numero_apt = ");
-            builder.Append(morador.Numero_apt + " ");
+            builder.Append(morador.Numero_apt + ", ");
+
+            builder.Append("adimplente = ");
+            builder.Append(((morador.Adimplente == true) ? 1 : 0) + " ");
 
             builder.Append("WHERE ");
             builder.Append("id = " + morador.Id);

@@ -15,6 +15,7 @@ namespace condominios.Entidade
         public double Valor_agua { get; set; }
         public double Valor_luz { get; set; }
         public double Valor_gas { get; set; }
+        public String Nome { get; set; }
 
         public Condominio()
         {

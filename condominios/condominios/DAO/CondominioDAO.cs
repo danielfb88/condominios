@@ -28,7 +28,8 @@ namespace condominios.DAO
             builder.Append("qtd_apt, ");
             builder.Append("valor_agua, ");
             builder.Append("valor_luz, ");
-            builder.Append("valor_gas ");
+            builder.Append("valor_gas, ");
+            builder.Append("nome ");
 
             builder.Append(") ");
 
@@ -41,7 +42,8 @@ namespace condominios.DAO
             builder.Append(condominio.Qtd_Apt + ", ");
             builder.Append(condominio.Valor_agua + ", ");
             builder.Append(condominio.Valor_luz + ", ");
-            builder.Append(condominio.Valor_gas + " ");
+            builder.Append(condominio.Valor_gas + ", ");
+            builder.Append("'" + condominio.Nome + "' ");
 
             builder.Append(");");
 
@@ -68,7 +70,10 @@ namespace condominios.DAO
             builder.Append(condominio.Valor_luz + ", ");
 
             builder.Append("valor_gas = ");
-            builder.Append(condominio.Valor_gas + " ");
+            builder.Append(condominio.Valor_gas + ", ");
+
+            builder.Append("nome = ");
+            builder.Append("'" + condominio.Nome + "' ");
 
             builder.Append("WHERE ");
             builder.Append("id = " + condominio.Id);

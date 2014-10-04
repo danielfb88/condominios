@@ -16,6 +16,7 @@ namespace condominios.Entidade
         public String Cpf { get; set; }
         public String Rg { get; set; }
         public int Numero_apt { get; set; }
+        public bool Adimplente { get; set; }
 
         public Morador()
         {
