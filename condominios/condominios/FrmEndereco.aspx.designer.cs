@@ -22,6 +22,24 @@ namespace condominios {
         protected global::System.Web.UI.WebControls.Panel pnlCadastro;
         
         /// <summary>
+        /// lbId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbId;
+        
+        /// <summary>
+        /// txId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txId;
+        
+        /// <summary>
         /// lbCidade control.
         /// </summary>
         /// <remarks>
