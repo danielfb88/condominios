@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Endereco" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Endereco.aspx.cs" Inherits="condominios.About" %>
+﻿<%@ Page Title="Condomínio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmCondominio.aspx.cs" Inherits="condominios.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Cadastrar <%: Title %>.</h2>
