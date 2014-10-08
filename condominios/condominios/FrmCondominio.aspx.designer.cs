@@ -22,130 +22,130 @@ namespace condominios {
         protected global::System.Web.UI.WebControls.Panel pnlCadastro;
         
         /// <summary>
-        /// lbCidade control.
+        /// lbCondominio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbCidade;
+        protected global::System.Web.UI.WebControls.Label lbCondominio;
         
         /// <summary>
-        /// txCidade control.
+        /// txId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txCidade;
+        protected global::System.Web.UI.WebControls.TextBox txId;
         
         /// <summary>
-        /// lbEstado control.
+        /// lbEndereco control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbEstado;
+        protected global::System.Web.UI.WebControls.Label lbEndereco;
         
         /// <summary>
-        /// txEstado control.
+        /// txIdEndereco control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txEstado;
+        protected global::System.Web.UI.WebControls.TextBox txIdEndereco;
         
         /// <summary>
-        /// lbCep control.
+        /// lbNome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbCep;
+        protected global::System.Web.UI.WebControls.Label lbNome;
         
         /// <summary>
-        /// txCep control.
+        /// txNome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txCep;
+        protected global::System.Web.UI.WebControls.TextBox txNome;
         
         /// <summary>
-        /// lblBairro control.
+        /// lbQtdApt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBairro;
+        protected global::System.Web.UI.WebControls.Label lbQtdApt;
         
         /// <summary>
-        /// txBairro control.
+        /// txQtdApt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txBairro;
+        protected global::System.Web.UI.WebControls.TextBox txQtdApt;
         
         /// <summary>
-        /// lbNumero control.
+        /// lbAgua control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbNumero;
+        protected global::System.Web.UI.WebControls.Label lbAgua;
         
         /// <summary>
-        /// txNumero control.
+        /// txAgua control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txNumero;
+        protected global::System.Web.UI.WebControls.TextBox txAgua;
         
         /// <summary>
-        /// lbLogradouro control.
+        /// lbLuz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbLogradouro;
+        protected global::System.Web.UI.WebControls.Label lbLuz;
         
         /// <summary>
-        /// txLogradouro control.
+        /// txLuz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txLogradouro;
+        protected global::System.Web.UI.WebControls.TextBox txLuz;
         
         /// <summary>
-        /// lbComplemento control.
+        /// lbGas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbComplemento;
+        protected global::System.Web.UI.WebControls.Label lbGas;
         
         /// <summary>
-        /// txComplemento control.
+        /// txGas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txComplemento;
+        protected global::System.Web.UI.WebControls.TextBox txGas;
         
         /// <summary>
         /// btnCadastrar control.
@@ -155,5 +155,14 @@ namespace condominios {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCadastrar;
+        
+        /// <summary>
+        /// gridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridView1;
     }
 }
