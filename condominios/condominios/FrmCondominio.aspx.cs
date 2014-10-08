@@ -61,7 +61,7 @@ namespace condominios
             txId.Text = Convert.ToString(condominio.Id);
             txIdEndereco.Text = Convert.ToString(condominio.Id_endereco);
             txNome.Text = condominio.Nome;
-            condominio.Id_endereco = Convert.ToInt32(condominio.Qtd_Apt);
+            txQtdApt.Text = Convert.ToString(condominio.Qtd_Apt);
             txAgua.Text = Convert.ToString(condominio.Valor_agua);
             txGas.Text = Convert.ToString(condominio.Valor_gas);
             txLuz.Text = Convert.ToString(condominio.Valor_luz);
