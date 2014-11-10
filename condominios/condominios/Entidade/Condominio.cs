@@ -45,6 +45,12 @@ namespace condominios.Entidade
         public List<Condominio> GetTodos()
         {
             return this.condominioDAO.GetTodos();
-        }        
+        }
+
+        // TODO
+        public int NextId()
+        {
+            return this.condominioDAO.NextId();
+        }
     }
 }

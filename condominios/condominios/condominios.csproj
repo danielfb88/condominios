@@ -151,25 +151,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FrmEndereco.aspx" />
+    <Content Include="css\style-mobile.css" />
+    <Content Include="css\style-narrow.css" />
+    <Content Include="css\style-wide.css" />
+    <Content Include="css\style.css" />
+    <Content Include="fonts\News Cycle SIL OFL Font License 1.1.txt" />
+    <Content Include="forms\cadastro\FrmEndereco.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
-    <Content Include="FrmCondominio.aspx" />
+    <Content Include="forms\cadastro\FrmCondominio.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="FrmFuncionario.aspx" />
-    <Content Include="FrmMorador.aspx" />
-    <Content Include="FrmSindico.aspx" />
+    <Content Include="forms\cadastro\FrmFuncionario.aspx" />
+    <Content Include="frmLogin.aspx" />
+    <Content Include="forms\cadastro\FrmMorador.aspx" />
+    <Content Include="forms\cadastro\FrmSindico.aspx" />
+    <Content Include="images\banner.jpg" />
+    <Content Include="images\facebook.png" />
+    <Content Include="images\graphic.jpg" />
+    <Content Include="images\pattern.png" />
+    <Content Include="images\rss.png" />
+    <Content Include="images\top.png" />
+    <Content Include="images\transparent.png" />
+    <Content Include="images\twitter.png" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\jquery.dropotron.js" />
+    <Content Include="js\jquery.dropotron.min.js" />
+    <Content Include="js\skel.min.js" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="fonts\DroidSans-webfont.eot" />
+    <Content Include="fonts\DroidSans-webfont.woff" />
+    <Content Include="fonts\NewsCycle-Regular.eot" />
+    <Content Include="fonts\NewsCycle-Regular.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -254,22 +276,22 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="FrmEndereco.aspx.cs">
+    <Compile Include="forms\cadastro\FrmEndereco.aspx.cs">
       <DependentUpon>FrmEndereco.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrmEndereco.aspx.designer.cs">
+    <Compile Include="forms\cadastro\FrmEndereco.aspx.designer.cs">
       <DependentUpon>FrmEndereco.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Conexao\Conn.cs" />
     <Compile Include="Conexao\DBSettings.cs" />
-    <Compile Include="FrmCondominio.aspx.cs">
+    <Compile Include="forms\cadastro\FrmCondominio.aspx.cs">
       <DependentUpon>FrmCondominio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrmCondominio.aspx.designer.cs">
+    <Compile Include="forms\cadastro\FrmCondominio.aspx.designer.cs">
       <DependentUpon>FrmCondominio.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAO\CondominioDAO.cs" />
@@ -290,25 +312,32 @@
     <Compile Include="Entidade\Sindico.cs" />
     <Compile Include="Entidade\Endereco.cs" />
     <Compile Include="Entidade\Condominio.cs" />
-    <Compile Include="FrmFuncionario.aspx.cs">
+    <Compile Include="forms\cadastro\FrmFuncionario.aspx.cs">
       <DependentUpon>FrmFuncionario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrmFuncionario.aspx.designer.cs">
+    <Compile Include="forms\cadastro\FrmFuncionario.aspx.designer.cs">
       <DependentUpon>FrmFuncionario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FrmMorador.aspx.cs">
+    <Compile Include="frmLogin.aspx.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLogin.aspx.designer.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\cadastro\FrmMorador.aspx.cs">
       <DependentUpon>FrmMorador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrmMorador.aspx.designer.cs">
+    <Compile Include="forms\cadastro\FrmMorador.aspx.designer.cs">
       <DependentUpon>FrmMorador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FrmSindico.aspx.cs">
+    <Compile Include="forms\cadastro\FrmSindico.aspx.cs">
       <DependentUpon>FrmSindico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrmSindico.aspx.designer.cs">
+    <Compile Include="forms\cadastro\FrmSindico.aspx.designer.cs">
       <DependentUpon>FrmSindico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -341,6 +370,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="forms\pesquisa\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -52,6 +52,19 @@ namespace condominios.DAO
             return this.update(builder.ToString());
         }
 
+        public int NextId()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("SELECT COUNT(*) FROM ");
+            builder.Append(this.TableName + " ");
+            builder.Append("WHERE ");
+            builder.Append("id = " + id);
+            builder.Append(";");
+
+            this.LastQuery = builder.ToString();
+            return Conn.GetInstance().Fetch(query);
+        }
+
         protected bool Update(String query)
         {
             this.LastQuery = query;
