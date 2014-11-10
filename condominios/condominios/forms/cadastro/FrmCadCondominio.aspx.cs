@@ -29,5 +29,20 @@ namespace condominios.forms.cadastro
 
             condominio.Adicionar();
         }
+
+        protected void btnNovo_Click(object sender, EventArgs e)
+        {
+            Condominio condominio = new Condominio();
+        }
+
+        private void redirecionarPesquisa()
+        {
+            Response.Redirect("~/forms/pesquisa/FrmPesqCondominio.aspx");
+        }
+
+        private void redirecionarMesmaPagina()
+        {
+            Response.Redirect("~/forms/pesquisa/FrmCadCondominio.aspx");
+        }
     }
 }

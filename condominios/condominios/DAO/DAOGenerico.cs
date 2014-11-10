@@ -52,17 +52,29 @@ namespace condominios.DAO
             return this.update(builder.ToString());
         }
 
-        public int NextId()
+        public int GetQuantidadeRegistros()
         {
             StringBuilder builder = new StringBuilder();
             builder.Append("SELECT COUNT(*) FROM ");
             builder.Append(this.TableName + " ");
-            builder.Append("WHERE ");
-            builder.Append("id = " + id);
             builder.Append(";");
 
             this.LastQuery = builder.ToString();
-            return Conn.GetInstance().Fetch(query);
+
+            NpgsqlDataReader dataReader = Conn.GetInstance().Fetch(builder.ToString());
+            int qtdRegistros = 0;
+
+            if (dataReader.HasRows && dataReader.Read())
+            {
+                qtdRegistros = (int)dataReader[0];
+            }
+
+            return qtdRegistros;
+        }
+
+        public int NextId()
+        {
+            return this.GetQuantidadeRegistros() + 1;
         }
 
         protected bool Update(String query)

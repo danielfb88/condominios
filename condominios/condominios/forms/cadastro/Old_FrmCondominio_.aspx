@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Condomínio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="~/forms/cadastro/FrmCondominio.aspx.cs" Inherits="condominios.form.cadastro.FrmCondominio" %>
+﻿<%@ Page Title="Condomínio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="~/forms/cadastro/Old_FrmCondominio_.aspx.cs" Inherits="condominios.form.cadastro.FrmCondominio" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Cadastrar <%: Page.Title %>.</h2>
@@ -42,6 +42,7 @@
 
             <li>
                 <asp:Button ID="btnCadastrar" runat="server" Text="Salvar" OnClick="btnCadastrar_Click"/>
+                <asp:Button ID="btnNovo" runat="server" Text="Novo" OnClick="btnNovo_Click"/>
             </li>
         </ul>
 

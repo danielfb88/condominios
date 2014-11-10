@@ -156,13 +156,14 @@
     <Content Include="css\style-wide.css" />
     <Content Include="css\style.css" />
     <Content Include="fonts\News Cycle SIL OFL Font License 1.1.txt" />
+    <Content Include="forms\cadastro\FrmCadCondominio.aspx" />
     <Content Include="forms\cadastro\FrmEndereco.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
-    <Content Include="forms\cadastro\FrmCondominio.aspx" />
+    <Content Include="forms\cadastro\Old_FrmCondominio_.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -276,6 +277,13 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="forms\cadastro\FrmCadCondominio.aspx.cs">
+      <DependentUpon>FrmCadCondominio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\cadastro\FrmCadCondominio.aspx.designer.cs">
+      <DependentUpon>FrmCadCondominio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forms\cadastro\FrmEndereco.aspx.cs">
       <DependentUpon>FrmEndereco.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -287,12 +295,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Conexao\Conn.cs" />
     <Compile Include="Conexao\DBSettings.cs" />
-    <Compile Include="forms\cadastro\FrmCondominio.aspx.cs">
-      <DependentUpon>FrmCondominio.aspx</DependentUpon>
+    <Compile Include="forms\cadastro\Old_FrmCondominio_.aspx.cs">
+      <DependentUpon>Old_FrmCondominio_.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\cadastro\FrmCondominio.aspx.designer.cs">
-      <DependentUpon>FrmCondominio.aspx</DependentUpon>
+    <Compile Include="forms\cadastro\Old_FrmCondominio_.aspx.designer.cs">
+      <DependentUpon>Old_FrmCondominio_.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAO\CondominioDAO.cs" />
     <Compile Include="DAO\DAOGenerico.cs" />
