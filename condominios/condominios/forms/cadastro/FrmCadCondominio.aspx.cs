@@ -8,11 +8,13 @@ using condominios.Entidade;
 
 namespace condominios.forms.cadastro
 {
-    public partial class FrmCondominio : System.Web.UI.Page
+    public partial class FrmCadCondominio : System.Web.UI.Page
     {
+        String nomeEntidade = "Condominio";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
@@ -26,7 +28,6 @@ namespace condominios.forms.cadastro
             condominio.Valor_agua = Convert.ToDouble(txAgua.Text);
             condominio.Valor_gas = Convert.ToDouble(txGas.Text);
             condominio.Valor_luz = Convert.ToDouble(txLuz.Text);
-
             condominio.Adicionar();
         }
 
@@ -37,12 +38,12 @@ namespace condominios.forms.cadastro
 
         private void redirecionarPesquisa()
         {
-            Response.Redirect("~/forms/pesquisa/FrmPesqCondominio.aspx");
+            Response.Redirect("~/forms/pesquisa/FrmPesq" + nomeEntidade + ".aspx");
         }
 
         private void redirecionarMesmaPagina()
         {
-            Response.Redirect("~/forms/pesquisa/FrmCadCondominio.aspx");
+            Response.Redirect("~/forms/pesquisa/FrmCad" + nomeEntidade + ".aspx");
         }
     }
 }

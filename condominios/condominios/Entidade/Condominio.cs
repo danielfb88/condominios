@@ -8,7 +8,7 @@ namespace condominios.Entidade
 {
     public class Condominio
     {
-        private CondominioDAO condominioDAO;
+        private CondominioDAO dao;
         public int Id { get; set; }
         public int Id_endereco { get; set; }
         public int Qtd_Apt { get; set; }
@@ -19,37 +19,37 @@ namespace condominios.Entidade
 
         public Condominio()
         {
-            condominioDAO = new CondominioDAO();
+            dao = new CondominioDAO();
         }
 
         public bool Adicionar()
         {
-            return this.condominioDAO.Adicionar(this);
+            return this.dao.Adicionar(this);
         }
 
         public bool Editar()
         {
-            return this.condominioDAO.Editar(this);
+            return this.dao.Editar(this);
         }
 
         public bool Excluir()
         {
-            return this.condominioDAO.Excluir(Id);
+            return this.dao.Excluir(Id);
         }
 
         public Condominio GetPorId(int id)
         {
-            return this.condominioDAO.GetPorId(id);
+            return this.dao.GetPorId(id);
         }
 
         public List<Condominio> GetTodos()
         {
-            return this.condominioDAO.GetTodos();
+            return this.dao.GetTodos();
         }
 
         public int NextId()
         {
-            return this.condominioDAO.NextId();
+            return this.dao.NextId();
         }
     }
 }

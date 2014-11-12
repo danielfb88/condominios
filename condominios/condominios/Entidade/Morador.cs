@@ -8,7 +8,7 @@ namespace condominios.Entidade
 {
     public class Morador
     {
-        private MoradorDAO moradorDAO;
+        private MoradorDAO dao;
 
         public int Id { get; set; }
         public int Id_condominio { get; set; }
@@ -20,32 +20,37 @@ namespace condominios.Entidade
 
         public Morador()
         {
-            moradorDAO = new MoradorDAO();
+            dao = new MoradorDAO();
         }
 
         public bool Adicionar()
         {
-            return this.moradorDAO.Adicionar(this);
+            return this.dao.Adicionar(this);
         }
 
         public bool Editar()
         {
-            return this.moradorDAO.Editar(this);
+            return this.dao.Editar(this);
         }
 
         public bool Excluir()
         {
-            return this.moradorDAO.Excluir(Id);
+            return this.dao.Excluir(Id);
         }
 
         public Morador GetPorId(int id)
         {
-            return this.moradorDAO.GetPorId(id);
+            return this.dao.GetPorId(id);
         }
 
         public List<Morador> GetTodos()
         {
-            return this.moradorDAO.GetTodos();
-        }    
+            return this.dao.GetTodos();
+        }
+
+        public int NextId()
+        {
+            return this.dao.NextId();
+        }
     }
 }

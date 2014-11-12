@@ -157,21 +157,21 @@
     <Content Include="css\style.css" />
     <Content Include="fonts\News Cycle SIL OFL Font License 1.1.txt" />
     <Content Include="forms\cadastro\FrmCadCondominio.aspx" />
-    <Content Include="forms\cadastro\FrmEndereco.aspx" />
+    <Content Include="forms\cadastro\FrmCadEndereco.aspx" />
+    <Content Include="forms\cadastro\FrmCadMorador.aspx" />
+    <Content Include="forms\cadastro\FrmCadSindico.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
-    <Content Include="forms\cadastro\Old_FrmCondominio_.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="forms\cadastro\FrmFuncionario.aspx" />
+    <Content Include="forms\cadastro\FrmCadFuncionario.aspx" />
+    <Content Include="FrmCondominio.aspx" />
     <Content Include="frmLogin.aspx" />
-    <Content Include="forms\cadastro\FrmMorador.aspx" />
-    <Content Include="forms\cadastro\FrmSindico.aspx" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\facebook.png" />
     <Content Include="images\graphic.jpg" />
@@ -193,6 +193,7 @@
     <Content Include="fonts\DroidSans-webfont.woff" />
     <Content Include="fonts\NewsCycle-Regular.eot" />
     <Content Include="fonts\NewsCycle-Regular.ttf" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -284,24 +285,31 @@
     <Compile Include="forms\cadastro\FrmCadCondominio.aspx.designer.cs">
       <DependentUpon>FrmCadCondominio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="forms\cadastro\FrmEndereco.aspx.cs">
-      <DependentUpon>FrmEndereco.aspx</DependentUpon>
+    <Compile Include="forms\cadastro\FrmCadEndereco.aspx.cs">
+      <DependentUpon>FrmCadEndereco.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\cadastro\FrmEndereco.aspx.designer.cs">
-      <DependentUpon>FrmEndereco.aspx</DependentUpon>
+    <Compile Include="forms\cadastro\FrmCadEndereco.aspx.designer.cs">
+      <DependentUpon>FrmCadEndereco.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\cadastro\FrmCadMorador.aspx.cs">
+      <DependentUpon>FrmCadMorador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\cadastro\FrmCadMorador.aspx.designer.cs">
+      <DependentUpon>FrmCadMorador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\cadastro\FrmCadSindico.aspx.cs">
+      <DependentUpon>FrmCadSindico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\cadastro\FrmCadSindico.aspx.designer.cs">
+      <DependentUpon>FrmCadSindico.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Conexao\Conn.cs" />
     <Compile Include="Conexao\DBSettings.cs" />
-    <Compile Include="forms\cadastro\Old_FrmCondominio_.aspx.cs">
-      <DependentUpon>Old_FrmCondominio_.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\cadastro\Old_FrmCondominio_.aspx.designer.cs">
-      <DependentUpon>Old_FrmCondominio_.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DAO\CondominioDAO.cs" />
     <Compile Include="DAO\DAOGenerico.cs" />
     <Compile Include="DAO\EnderecoDAO.cs" />
@@ -320,12 +328,19 @@
     <Compile Include="Entidade\Sindico.cs" />
     <Compile Include="Entidade\Endereco.cs" />
     <Compile Include="Entidade\Condominio.cs" />
-    <Compile Include="forms\cadastro\FrmFuncionario.aspx.cs">
-      <DependentUpon>FrmFuncionario.aspx</DependentUpon>
+    <Compile Include="forms\cadastro\FrmCadFuncionario.aspx.cs">
+      <DependentUpon>FrmCadFuncionario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\cadastro\FrmFuncionario.aspx.designer.cs">
-      <DependentUpon>FrmFuncionario.aspx</DependentUpon>
+    <Compile Include="forms\cadastro\FrmCadFuncionario.aspx.designer.cs">
+      <DependentUpon>FrmCadFuncionario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCondominio.aspx.cs">
+      <DependentUpon>FrmCondominio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmCondominio.aspx.designer.cs">
+      <DependentUpon>FrmCondominio.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.aspx.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
@@ -333,20 +348,6 @@
     </Compile>
     <Compile Include="frmLogin.aspx.designer.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="forms\cadastro\FrmMorador.aspx.cs">
-      <DependentUpon>FrmMorador.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\cadastro\FrmMorador.aspx.designer.cs">
-      <DependentUpon>FrmMorador.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="forms\cadastro\FrmSindico.aspx.cs">
-      <DependentUpon>FrmSindico.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\cadastro\FrmSindico.aspx.designer.cs">
-      <DependentUpon>FrmSindico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -374,6 +375,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

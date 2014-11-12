@@ -8,7 +8,7 @@ namespace condominios.Entidade
 {
     public class Sindico
     {
-        private SindicoDAO sindicoDAO;
+        private SindicoDAO dao;
 
         public int Id { get; set; }
         public int Id_endereco { get; set; }
@@ -19,32 +19,37 @@ namespace condominios.Entidade
 
         public Sindico()
         {
-            sindicoDAO = new SindicoDAO();
+            dao = new SindicoDAO();
         }
 
         public bool Adicionar()
         {
-            return this.sindicoDAO.Adicionar(this);
+            return this.dao.Adicionar(this);
         }
 
         public bool Editar()
         {
-            return this.sindicoDAO.Editar(this);
+            return this.dao.Editar(this);
         }
 
         public bool Excluir()
         {
-            return this.sindicoDAO.Excluir(Id);
+            return this.dao.Excluir(Id);
         }
 
         public Sindico GetPorId(int id)
         {
-            return this.sindicoDAO.GetPorId(id);
+            return this.dao.GetPorId(id);
         }
 
         public List<Sindico> GetTodos()
         {
-            return this.sindicoDAO.GetTodos();
-        }    
+            return this.dao.GetTodos();
+        }
+
+        public int NextId()
+        {
+            return this.dao.NextId();
+        }
     }
 }

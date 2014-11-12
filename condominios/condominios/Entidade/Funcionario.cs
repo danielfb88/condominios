@@ -8,7 +8,7 @@ namespace condominios.Entidade
 {
     public class Funcionario
     {
-        private FuncionarioDAO funcionarioDAO;
+        private FuncionarioDAO dao;
 
         public int Id { get; set; }
         public int Id_endereco { get; set; }
@@ -19,32 +19,37 @@ namespace condominios.Entidade
 
         public Funcionario()
         {
-            funcionarioDAO = new FuncionarioDAO();
+            dao = new FuncionarioDAO();
         }
 
         public bool Adicionar()
         {
-            return this.funcionarioDAO.Adicionar(this);
+            return this.dao.Adicionar(this);
         }
 
         public bool Editar()
         {
-            return this.funcionarioDAO.Editar(this);
+            return this.dao.Editar(this);
         }
 
         public bool Excluir()
         {
-            return this.funcionarioDAO.Excluir(Id);
+            return this.dao.Excluir(Id);
         }
 
         public Funcionario GetPorId(int id)
         {
-            return this.funcionarioDAO.GetPorId(id);
+            return this.dao.GetPorId(id);
         }
 
         public List<Funcionario> GetTodos()
         {
-            return this.funcionarioDAO.GetTodos();
-        }     
+            return this.dao.GetTodos();
+        }
+
+        public int NextId()
+        {
+            return this.dao.NextId();
+        }
     }
 }

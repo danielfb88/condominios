@@ -8,7 +8,7 @@ namespace condominios.Entidade
 {
     public class Endereco
     {
-        private EnderecoDAO enderecoDAO;
+        private EnderecoDAO dao;
 
         public int Id { get; set; }
         public String Cidade { get; set; }
@@ -21,32 +21,37 @@ namespace condominios.Entidade
 
         public Endereco()
         {
-            enderecoDAO = new EnderecoDAO();
+            dao = new EnderecoDAO();
         }
 
         public bool Adicionar()
         {
-            return this.enderecoDAO.Adicionar(this);
+            return this.dao.Adicionar(this);
         }
 
         public bool Editar()
         {
-            return this.enderecoDAO.Editar(this);
+            return this.dao.Editar(this);
         }
 
         public bool Excluir()
         {
-            return this.enderecoDAO.Excluir(Id);
+            return this.dao.Excluir(Id);
         }
 
         public Endereco GetPorId(int id)
         {
-            return this.enderecoDAO.GetPorId(id);
+            return this.dao.GetPorId(id);
         }
 
         public List<Endereco> GetTodos()
         {
-            return this.enderecoDAO.GetTodos();
+            return this.dao.GetTodos();
+        }
+
+        public int NextId()
+        {
+            return this.dao.NextId();
         }
 
     }

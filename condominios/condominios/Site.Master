@@ -88,25 +88,15 @@
 					<nav id="main-nav" class="8u">
 						<ul>
                             <li>
-								<a href="#">Cadastrar</a>			
+								<a href="#">Administração</a>			
 									<ul>
-										<li><a runat="server" href="~/forms/cadastro/FrmCadCondominio">Condomínio</a></li>
-										<li><a runat="server" href="~/forms/cadastro/FrmCadEndereco">Endereço</a></li>
-                                        <li><a runat="server" href="~/forms/cadastro/FrmCadFuncionario">Funcionário</a></li>
-                                        <li><a runat="server" href="~/forms/cadastro/FrmCadMorador">Morador</a></li>
-                                        <li><a runat="server" href="~/forms/cadastro/FrmCadSindico">Síndico</a></li>										
+										<li><a runat="server" href="~/FrmCondominio">Condomínio</a></li>
+										<li><a runat="server" href="~/forms/FrmEndereco">Endereço</a></li>
+                                        <li><a runat="server" href="~/forms/FrmFuncionario">Funcionário</a></li>
+                                        <li><a runat="server" href="~/forms/FrmMorador">Morador</a></li>
+                                        <li><a runat="server" href="~/forms/FrmSindico">Síndico</a></li>										
 									</ul>
-							</li>							
-							<li>
-								<a href="#">Pesquisar</a>			
-									<ul>
-										<li><a runat="server" href="~/forms/pesquisa/FrmPesqCondominio">Condomínio</a></li>
-										<li><a runat="server" href="~/forms/pesquisa/FrmPesqEndereco">Endereço</a></li>
-                                        <li><a runat="server" href="~/forms/pesquisa/FrmPesqFuncionario">Funcionário</a></li>
-                                        <li><a runat="server" href="~/forms/pesquisa/FrmPesqMorador">Morador</a></li>
-                                        <li><a runat="server" href="~/forms/pesquisa/FrmPesqSindico">Síndico</a></li>										
-									</ul>
-							</li>	
+							</li>
 							<li><a runat="server" href="contact.php">Contato</a></li>
 						</ul>
 					</nav>
