@@ -52,3 +52,12 @@ CREATE TABLE morador (
 	adimplente INT
 );
 ALTER TABLE morador ADD CONSTRAINT fk_morador_condominio FOREIGN KEY (id_condominio) REFERENCES condominio (id);
+
+
+-- procedure
+CREATE OR REPLACE FUNCTION total_valor_condominio() 
+RETURNS REAL AS
+$BODY$
+     SELECT (valor_agua + valor_luz + valor_gas) FROM condominio;
+$BODY$ 
+LANGUAGE 'sql';

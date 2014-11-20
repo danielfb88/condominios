@@ -11,8 +11,8 @@ namespace condominios.DAO
 {
     public abstract class DAOGenerico
     {
-        public String LastQuery { get; set; }
-        public String TableName { get; set; }
+        protected String LastQuery { get; set; }
+        protected String TableName { get; set; }
 
         private bool update(String query)
         {
@@ -23,6 +23,11 @@ namespace condominios.DAO
         {
             String query = "SELECT * FROM " + this.TableName + ";";
             this.LastQuery = query;
+            return Conn.GetInstance().Fetch(query);
+        }
+
+        protected NpgsqlDataReader Fetch(String query)
+        {
             return Conn.GetInstance().Fetch(query);
         }
 

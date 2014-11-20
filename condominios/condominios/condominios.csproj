@@ -278,6 +278,7 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="DAO\RelatorioDAO.cs" />
     <Compile Include="forms\cadastro\FrmCadCondominio.aspx.cs">
       <DependentUpon>FrmCadCondominio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

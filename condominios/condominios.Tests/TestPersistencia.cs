@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using condominios.Entidade;
 using System.Collections.Generic;
 using System.Diagnostics;
+using condominios.DAO;
+using System.Globalization;
 
 namespace condominios.Tests
 {
@@ -75,6 +77,7 @@ namespace condominios.Tests
             condominio.Valor_agua = 30F;
             condominio.Valor_gas = 12F;
             condominio.Valor_luz = 40F;
+            condominio.Nome = "Rivera";
 
             Assert.IsTrue(condominio.Adicionar());
         }
@@ -89,6 +92,7 @@ namespace condominios.Tests
             condominio.Valor_agua = 30;
             condominio.Valor_gas = 12;
             condominio.Valor_luz = 40;
+            condominio.Nome = "Rivera";
 
             Assert.IsTrue(condominio.Editar());
         }
@@ -122,6 +126,7 @@ namespace condominios.Tests
             morador.Numero_apt = 102;
             morador.Rg = "1111221";
             morador.Cpf = "21313131";
+            morador.Adimplente = false;
 
             Assert.IsTrue(morador.Adicionar());
         }
@@ -136,6 +141,7 @@ namespace condominios.Tests
             morador.Numero_apt = 103;
             morador.Rg = "1111221";
             morador.Cpf = "21313131";
+            morador.Adimplente = false;
 
             Assert.IsTrue(morador.Editar());
         }
@@ -154,15 +160,6 @@ namespace condominios.Tests
             List<Morador> listMorador = new Morador().GetTodos();
 
             Assert.IsTrue(listMorador.Count == 1);
-        }
-
-        [TestMethod]
-        public void ExclusaoMorador()
-        {
-            Morador morador = new Morador();
-            morador.Id = 1;
-
-            Assert.IsTrue(morador.Excluir());
         }
 
         /*
@@ -278,8 +275,44 @@ namespace condominios.Tests
         }
 
         /*
+         * Relatórios
+         * *
+         * */
+        [TestMethod]
+        public void ConsultaValoresCondominio()
+        {
+            RelatorioDAO relatorioDao = new RelatorioDAO();
+            List<String[]> list = relatorioDao.RelatorioValoresCondominio();
+
+            float somatorio = 0;
+            foreach(String[] linha in list) {
+                somatorio += float.Parse(linha[4], CultureInfo.InvariantCulture.NumberFormat);                
+            }
+            
+            Assert.IsTrue(list.Count == 1 && somatorio == 82); // 30+ 12 + 40
+        }
+
+        [TestMethod]
+        public void MoradoresInadimplentes()
+        {
+            RelatorioDAO relatorioDao = new RelatorioDAO();
+            List<String[]> list = relatorioDao.RelatorioMoradoresInadimplentes();
+
+            Assert.IsTrue(list.Count == 1);
+        }
+
+        /*
          * Exclusoes Restantes
          * */
+        [TestMethod]
+        public void ExclusaoMorador()
+        {
+            Morador morador = new Morador();
+            morador.Id = 1;
+
+            Assert.IsTrue(morador.Excluir());
+        }
+
         [TestMethod]
         public void ExclusaoCondominio()
         {
@@ -297,5 +330,6 @@ namespace condominios.Tests
 
             Assert.IsTrue(endereco.Excluir());
         }
+
     }
 }

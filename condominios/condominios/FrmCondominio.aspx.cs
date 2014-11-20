@@ -28,8 +28,7 @@ namespace condominios.forms
             }
             
             // Grid
-            listGrid = new Condominio().GetTodos();
-            gridView1.DataSource = listGrid;
+            gridView1.DataSource = new Condominio().GetTodos();
             gridView1.DataBind();
         }
 
