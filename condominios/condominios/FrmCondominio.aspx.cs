@@ -10,12 +10,26 @@ namespace condominios.forms
 {
     public partial class FrmCondominio : System.Web.UI.Page
     {
-        List<Condominio> listCondominio;
+        List<Condominio> listGrid;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            listCondominio = new Condominio().GetTodos();
-            gridView1.DataSource = listCondominio;
+            if (!Page.IsPostBack)
+            {
+                // DropDownList
+                Endereco endereco = new Endereco();
+                List<Endereco> list = endereco.GetTodos();
+
+                int i = 0;
+                foreach (Endereco end in list)
+                {
+                    dlEndereco.Items.Insert(i++, new ListItem(end.Logradouro, Convert.ToString(end.Id)));
+                }
+            }
+            
+            // Grid
+            listGrid = new Condominio().GetTodos();
+            gridView1.DataSource = listGrid;
             gridView1.DataBind();
         }
 
@@ -23,8 +37,8 @@ namespace condominios.forms
         {
             Condominio condominio = new Condominio();
 
-            condominio.Id_endereco = Convert.ToInt32(txIdEndereco.Text);
-            condominio.Nome = txNome.Text;
+            condominio.Id_endereco = Convert.ToInt32(dlEndereco.SelectedValue);
+            condominio.Nome = Convert.ToString(txNome.Text);
             condominio.Qtd_Apt = Convert.ToInt32(condominio.Id_endereco);
             condominio.Valor_agua = Convert.ToDouble(txAgua.Text);
             condominio.Valor_gas = Convert.ToDouble(txGas.Text);
@@ -54,8 +68,8 @@ namespace condominios.forms
             Condominio condominio = obj.GetPorId(obj.Id);
 
             txId.Text = Convert.ToString(condominio.Id);
-            txIdEndereco.Text = Convert.ToString(condominio.Id_endereco);
-            txNome.Text = condominio.Nome;
+            dlEndereco.DataValueField = Convert.ToString(condominio.Id_endereco);
+            txNome.Text = Convert.ToString(condominio.Nome);
             txQtdApt.Text = Convert.ToString(condominio.Qtd_Apt);
             txAgua.Text = Convert.ToString(condominio.Valor_agua);
             txGas.Text = Convert.ToString(condominio.Valor_gas);

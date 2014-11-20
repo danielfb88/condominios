@@ -5,15 +5,15 @@
 
     <asp:Panel runat="server" ID="pnlCadastro" Visible="true">
     <form id="form1" runat="server" class="form_settings">
-        <ul>
+        <ul>        
             <li>
                 <asp:Label Text="Id Condominio" ID="lbCondominio" runat="server" />
                 <asp:TextBox ID="txId" Enabled="false" Text="" runat="server" />
             </li>
-
+                            
             <li>
-                <asp:Label Text="Id Endereco" ID="lbEndereco" runat="server" />
-                <asp:TextBox ID="txIdEndereco" Text="" runat="server" />
+                <asp:Label Text="Endereco" ID="lbEndereco" runat="server" />
+                <asp:DropDownList id="dlEndereco" Runat="Server"/>
             </li>
 
             <li>

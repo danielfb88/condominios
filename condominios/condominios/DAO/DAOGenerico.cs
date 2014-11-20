@@ -66,7 +66,7 @@ namespace condominios.DAO
 
             if (dataReader.HasRows && dataReader.Read())
             {
-                qtdRegistros = (int)dataReader[0];
+                qtdRegistros = Convert.ToInt32(dataReader[0]);
             }
 
             return qtdRegistros;

@@ -58,13 +58,13 @@ namespace condominios.forms {
         protected global::System.Web.UI.WebControls.Label lbEndereco;
         
         /// <summary>
-        /// txIdEndereco control.
+        /// dlEndereco control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txIdEndereco;
+        protected global::System.Web.UI.WebControls.DropDownList dlEndereco;
         
         /// <summary>
         /// lbNome control.

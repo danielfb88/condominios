@@ -95,6 +95,7 @@ namespace condominios.DAO
                 condominio.Valor_agua = (float)dataReader[3];
                 condominio.Valor_luz = (float)dataReader[4];
                 condominio.Valor_gas = (float)dataReader[5];
+                condominio.Nome = (String)dataReader[6];
             }
 
             return condominio;
@@ -116,6 +117,7 @@ namespace condominios.DAO
                     condominio.Valor_agua = (float)dataReader[3];
                     condominio.Valor_luz = (float)dataReader[4];
                     condominio.Valor_gas = (float)dataReader[5];
+                    condominio.Nome = (String)dataReader[6];
 
                     listCondominio.Add(condominio);
                 } 
