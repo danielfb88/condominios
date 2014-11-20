@@ -10,48 +10,67 @@ namespace condominios.forms
 {
     public partial class FrmCondominio : System.Web.UI.Page
     {
-        List<Condominio> listGrid;
+        private void redirecionarMesmaPagina()
+        {
+            Response.Redirect("~/FrmCondominio.aspx");
+        }
+
+        /*
+         * DropDownList
+         * */
+        private void carregarDropDownList()
+        {
+            Endereco endereco = new Endereco();
+            List<Endereco> list = endereco.GetTodos();
+
+            int i = 0;
+            foreach (Endereco end in list)
+            {
+                dlEndereco.Items.Insert(i++, new ListItem(end.Logradouro, Convert.ToString(end.Id)));
+            }
+        }
+
+        /*
+         * Grid
+         * */
+        private void carregarGrid()
+        {
+            gridView1.DataSource = new Condominio().GetTodos();
+            gridView1.DataBind();
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                // DropDownList
-                Endereco endereco = new Endereco();
-                List<Endereco> list = endereco.GetTodos();
-
-                int i = 0;
-                foreach (Endereco end in list)
-                {
-                    dlEndereco.Items.Insert(i++, new ListItem(end.Logradouro, Convert.ToString(end.Id)));
-                }
+                this.carregarDropDownList();
             }
-            
-            // Grid
-            gridView1.DataSource = new Condominio().GetTodos();
-            gridView1.DataBind();
+
+            this.carregarGrid();            
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
-            Condominio condominio = new Condominio();
-
-            condominio.Id_endereco = Convert.ToInt32(dlEndereco.SelectedValue);
-            condominio.Nome = Convert.ToString(txNome.Text);
-            condominio.Qtd_Apt = Convert.ToInt32(condominio.Id_endereco);
-            condominio.Valor_agua = Convert.ToDouble(txAgua.Text);
-            condominio.Valor_gas = Convert.ToDouble(txGas.Text);
-            condominio.Valor_luz = Convert.ToDouble(txLuz.Text);
+            /*
+             * Obj
+             * */
+            Condominio obj = new Condominio();
+            obj.Id_endereco = Convert.ToInt32(dlEndereco.SelectedValue);
+            obj.Nome = Convert.ToString(txNome.Text);
+            obj.Qtd_Apt = Convert.ToInt32(obj.Id_endereco);
+            obj.Valor_agua = Convert.ToDouble(txAgua.Text);
+            obj.Valor_gas = Convert.ToDouble(txGas.Text);
+            obj.Valor_luz = Convert.ToDouble(txLuz.Text);
 
             if (txId.Text.Equals(""))
             {
-                condominio.Id = condominio.NextId();
-                condominio.Adicionar();
+                obj.Id = obj.NextId();
+                obj.Adicionar();
             }
             else
             {
-                condominio.Id = Convert.ToInt32(txId.Text);
-                condominio.Editar();
+                obj.Id = Convert.ToInt32(txId.Text);
+                obj.Editar();
             }
 
             this.redirecionarMesmaPagina();
@@ -62,32 +81,33 @@ namespace condominios.forms
             TableCell cell = gridView1.Rows[e.NewEditIndex].Cells[1];
             int id = Convert.ToInt32(cell.Text);
 
-            Condominio obj = new Condominio();
-            obj.Id = id;
-            Condominio condominio = obj.GetPorId(obj.Id);
-
-            txId.Text = Convert.ToString(condominio.Id);
-            dlEndereco.DataValueField = Convert.ToString(condominio.Id_endereco);
-            txNome.Text = Convert.ToString(condominio.Nome);
-            txQtdApt.Text = Convert.ToString(condominio.Qtd_Apt);
-            txAgua.Text = Convert.ToString(condominio.Valor_agua);
-            txGas.Text = Convert.ToString(condominio.Valor_gas);
-            txLuz.Text = Convert.ToString(condominio.Valor_luz);
+            /*
+             * Obj
+             * */
+            Condominio obj = new Condominio().GetPorId(id);
+            txId.Text = Convert.ToString(obj.Id);
+            dlEndereco.DataValueField = Convert.ToString(obj.Id_endereco);
+            txNome.Text = Convert.ToString(obj.Nome);
+            txQtdApt.Text = Convert.ToString(obj.Qtd_Apt);
+            txAgua.Text = Convert.ToString(obj.Valor_agua);
+            txGas.Text = Convert.ToString(obj.Valor_gas);
+            txLuz.Text = Convert.ToString(obj.Valor_luz);
         }
 
         protected void DeleteRowButton_Click(Object sender, GridViewDeleteEventArgs e)
         {
             TableCell cell = gridView1.Rows[e.RowIndex].Cells[1];
             int id = Convert.ToInt32(cell.Text);
-            Condominio condominio = new Condominio();
-            condominio.Id = id;
-            condominio.Excluir();
+
+            /*
+             * Obj
+             * */
+            Condominio obj = new Condominio();
+
+            obj.Id = id;
+            obj.Excluir();
             this.redirecionarMesmaPagina();
         }
 
-        private void redirecionarMesmaPagina()
-        {
-            Response.Redirect("~/FrmCondominio.aspx");
-        }
     }
 }

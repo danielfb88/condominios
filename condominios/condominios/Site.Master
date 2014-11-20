@@ -92,10 +92,17 @@
                             <a href="#">Administração</a>
                             <ul>
                                 <li><a runat="server" href="~/FrmCondominio">Condomínio</a></li>
-                                <li><a runat="server" href="~/forms/FrmEndereco">Endereço</a></li>
-                                <li><a runat="server" href="~/forms/FrmFuncionario">Funcionário</a></li>
-                                <li><a runat="server" href="~/forms/FrmMorador">Morador</a></li>
-                                <li><a runat="server" href="~/forms/FrmSindico">Síndico</a></li>
+                                <li><a runat="server" href="~/FrmEndereco">Endereço</a></li>
+                                <li><a runat="server" href="~/FrmFuncionario">Funcionário</a></li>
+                                <li><a runat="server" href="~/FrmMorador">Morador</a></li>
+                                <li><a runat="server" href="~/FrmSindico">Síndico</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Relatórios</a>
+                            <ul>
+                                <li><a runat="server" href="~/FrmRelatorioCondominio">Condomínio</a></li>
+                                <li><a runat="server" href="~/FrmRelatorioMorador">Morador</a></li>
                             </ul>
                         </li>
                         <li><a runat="server" href="contact.php">Contato</a></li>

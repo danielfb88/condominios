@@ -85,45 +85,45 @@ namespace condominios.DAO
         public Condominio GetPorId(int id)
         {
             NpgsqlDataReader dataReader = base.GetPorId(id);
-            Condominio condominio = new Condominio();
+            Condominio obj = new Condominio();
 
             if (dataReader.HasRows && dataReader.Read())
             {
-                condominio.Id = (int)dataReader[0];
-                condominio.Id_endereco = (int)dataReader[1];
-                condominio.Qtd_Apt = (int)dataReader[2];
-                condominio.Valor_agua = (float)dataReader[3];
-                condominio.Valor_luz = (float)dataReader[4];
-                condominio.Valor_gas = (float)dataReader[5];
-                condominio.Nome = (String)dataReader[6];
+                obj = this.PreencherObjeto(dataReader);
             }
 
-            return condominio;
+            return obj;
         }
 
         public List<Condominio> GetTodos()
         {
-            List<Condominio> listCondominio = new List<Condominio>();
+            List<Condominio> list = new List<Condominio>();
 
             NpgsqlDataReader dataReader = base.GetTodos();
             if (dataReader.HasRows)
             {
                 while (dataReader.Read())
                 {
-                    Condominio condominio = new Condominio();
-                    condominio.Id = (int)dataReader[0];
-                    condominio.Id_endereco = (int)dataReader[1];
-                    condominio.Qtd_Apt = (int)dataReader[2];
-                    condominio.Valor_agua = (float)dataReader[3];
-                    condominio.Valor_luz = (float)dataReader[4];
-                    condominio.Valor_gas = (float)dataReader[5];
-                    condominio.Nome = (String)dataReader[6];
-
-                    listCondominio.Add(condominio);
-                } 
+                    list.Add(this.PreencherObjeto(dataReader));
+                }
             }
 
-            return listCondominio;
+            return list;
+        }
+
+        private Condominio PreencherObjeto(NpgsqlDataReader dataReader)
+        {
+            int i = 0;
+            Condominio obj = new Condominio();
+            obj.Id = dataReader.GetInt32(i++);
+            obj.Id_endereco = dataReader.GetInt32(i++);
+            obj.Qtd_Apt = dataReader.GetInt32(i++);
+            obj.Valor_agua = dataReader.GetFloat(i++);
+            obj.Valor_luz = dataReader.GetFloat(i++);
+            obj.Valor_gas = dataReader.GetFloat(i++);
+            obj.Nome = dataReader.GetString(i++);
+
+            return obj;
         }
     }
 }

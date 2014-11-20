@@ -91,47 +91,46 @@ namespace condominios.DAO
         public Endereco GetPorId(int id)
         {
             NpgsqlDataReader dataReader = base.GetPorId(id);
-            Endereco endereco = new Endereco();
+            Endereco obj = new Endereco();
 
             if (dataReader.HasRows && dataReader.Read())
             {
-                endereco.Id = (int)dataReader[0];
-                endereco.Cidade = (String)dataReader[1];
-                endereco.Estado = (String)dataReader[2];
-                endereco.Cep = (String)dataReader[3];
-                endereco.Bairro = (String)dataReader[4];
-                endereco.Numero = (String)dataReader[5];
-                endereco.Logradouro = (String)dataReader[6];
-                endereco.Complemento = (String)dataReader[7];
+                obj = this.PreencherObjeto(dataReader);
             }
 
-            return endereco;
+            return obj;
         }
 
         public List<Endereco> GetTodos()
         {
-            List<Endereco> listEndereco = new List<Endereco>();
+            List<Endereco> list = new List<Endereco>();
 
             NpgsqlDataReader dataReader = base.GetTodos();
             if (dataReader.HasRows)
             {
                 while (dataReader.Read()) 
                 {
-                    Endereco endereco = new Endereco();
-                    endereco.Id = (int)dataReader.GetValue(0);
-                    endereco.Cidade = (String)dataReader[1];
-                    endereco.Estado = (String)dataReader[2];
-                    endereco.Cep = (String)dataReader[3];
-                    endereco.Bairro = (String)dataReader[4];
-                    endereco.Numero = (String)dataReader[5];
-                    endereco.Logradouro = (String)dataReader[6];
-                    endereco.Complemento = (String)dataReader[7];
-
-                    listEndereco.Add(endereco);
+                    list.Add(this.PreencherObjeto(dataReader));
                 } 
             }
 
-            return listEndereco;
+            return list;
+        }
+
+        private Endereco PreencherObjeto(NpgsqlDataReader dataReader)
+        {
+            int i = 0;
+            Endereco obj = new Endereco();
+            obj.Id = dataReader.GetInt32(i++);
+            obj.Cidade = dataReader.GetString(i++);
+            obj.Estado = dataReader.GetString(i++);
+            obj.Cep = dataReader.GetString(i++);
+            obj.Bairro = dataReader.GetString(i++);
+            obj.Numero = dataReader.GetString(i++);
+            obj.Logradouro = dataReader.GetString(i++);
+            obj.Complemento = dataReader.GetString(i++);
+
+            return obj;
         }
     }
 }

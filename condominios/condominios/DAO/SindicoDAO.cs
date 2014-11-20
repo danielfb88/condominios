@@ -77,46 +77,48 @@ namespace condominios.DAO
             return this.Update(builder.ToString());
         }
 
+
         public Sindico GetPorId(int id)
         {
             NpgsqlDataReader dataReader = base.GetPorId(id);
-            Sindico sindico = new Sindico();
+            Sindico obj = new Sindico();
 
             if (dataReader.HasRows && dataReader.Read())
             {
-                sindico.Id = (int)dataReader[0];
-                sindico.Id_endereco = (int)dataReader[1];
-                sindico.Id_condominio = (int)dataReader[2];
-                sindico.Nome = (String)dataReader[3];
-                sindico.Cpf = (String)dataReader[4];
-                sindico.Rg = (String)dataReader[5];
+                obj = this.PreencherObjeto(dataReader);
             }
 
-            return sindico;
+            return obj;
         }
 
         public List<Sindico> GetTodos()
         {
-            List<Sindico> listSindico = new List<Sindico>();
+            List<Sindico> list = new List<Sindico>();
 
             NpgsqlDataReader dataReader = base.GetTodos();
             if (dataReader.HasRows)
             {
                 while (dataReader.Read())
                 {
-                    Sindico sindico = new Sindico();
-                    sindico.Id = (int)dataReader[0];
-                    sindico.Id_endereco = (int)dataReader[1];
-                    sindico.Id_condominio = (int)dataReader[2];
-                    sindico.Nome = (String)dataReader[3];
-                    sindico.Cpf = (String)dataReader[4];
-                    sindico.Rg = (String)dataReader[5];
-
-                    listSindico.Add(sindico);
+                    list.Add(this.PreencherObjeto(dataReader));
                 }
             }
 
-            return listSindico;
+            return list;
+        }
+
+        private Sindico PreencherObjeto(NpgsqlDataReader dataReader)
+        {
+            int i = 0;
+            Sindico obj = new Sindico();
+            obj.Id = dataReader.GetInt32(i++);
+            obj.Id_endereco = dataReader.GetInt32(i++);
+            obj.Id_condominio = dataReader.GetInt32(i++);
+            obj.Nome = dataReader.GetString(i++);
+            obj.Cpf = dataReader.GetString(i++);
+            obj.Rg = dataReader.GetString(i++);
+
+            return obj;
         }
     }
 }

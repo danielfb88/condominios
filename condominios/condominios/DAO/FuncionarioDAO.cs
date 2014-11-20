@@ -80,43 +80,45 @@ namespace condominios.DAO
         public Funcionario GetPorId(int id)
         {
             NpgsqlDataReader dataReader = base.GetPorId(id);
-            Funcionario funcionario = new Funcionario();
+            Funcionario obj = new Funcionario();
 
             if (dataReader.HasRows && dataReader.Read())
             {
-                funcionario.Id = (int)dataReader[0];
-                funcionario.Id_endereco = (int)dataReader[1];
-                funcionario.Id_condominio = (int)dataReader[2];
-                funcionario.Nome = (String)dataReader[3];
-                funcionario.Cpf = (String)dataReader[4];
-                funcionario.Rg = (String)dataReader[5];
+                obj = this.PreencherObjeto(dataReader);
             }
 
-            return funcionario;
+            return obj;
         }
 
         public List<Funcionario> GetTodos()
         {
-            List<Funcionario> listFuncionario = new List<Funcionario>();
+            List<Funcionario> list = new List<Funcionario>();
 
             NpgsqlDataReader dataReader = base.GetTodos();
             if (dataReader.HasRows)
             {
                 while (dataReader.Read())
                 {
-                    Funcionario funcionario = new Funcionario();
-                    funcionario.Id = (int)dataReader[0];
-                    funcionario.Id_endereco = (int)dataReader[1];
-                    funcionario.Id_condominio = (int)dataReader[2];
-                    funcionario.Nome = (String)dataReader[3];
-                    funcionario.Cpf = (String)dataReader[4];
-                    funcionario.Rg = (String)dataReader[5];
-
-                    listFuncionario.Add(funcionario);
-                } 
+                    list.Add(this.PreencherObjeto(dataReader));
+                }
             }
 
-            return listFuncionario;
+            return list;
+        }
+
+        private Funcionario PreencherObjeto(NpgsqlDataReader dataReader)
+        {
+            int i = 0;
+            Funcionario obj = new Funcionario();
+            obj.Id = dataReader.GetInt32(i++);
+            obj.Id_endereco = dataReader.GetInt32(i++);
+            obj.Id_condominio = dataReader.GetInt32(i++);
+            obj.Nome = dataReader.GetString(i++);
+            obj.Cpf = dataReader.GetString(i++);
+            obj.Rg = dataReader.GetString(i++);
+            obj.Nome = dataReader.GetString(i++);
+
+            return obj;
         }
     }
 }

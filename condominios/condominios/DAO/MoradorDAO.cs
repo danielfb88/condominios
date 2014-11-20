@@ -84,43 +84,45 @@ namespace condominios.DAO
         public Morador GetPorId(int id)
         {
             NpgsqlDataReader dataReader = base.GetPorId(id);
-            Morador morador = new Morador();
+            Morador obj = new Morador();
 
             if (dataReader.HasRows && dataReader.Read())
             {
-                morador.Id = (int)dataReader[0];
-                morador.Id_condominio = (int)dataReader[1];
-                morador.Nome = (String)dataReader[2];
-                morador.Cpf = (String)dataReader[3];
-                morador.Rg = (String)dataReader[4];
-                morador.Numero_apt = (int)dataReader[5];
+                obj = this.PreencherObjeto(dataReader);
             }
 
-            return morador;
+            return obj;
         }
 
         public List<Morador> GetTodos()
         {
-            List<Morador> listMorador = new List<Morador>();
+            List<Morador> list = new List<Morador>();
 
             NpgsqlDataReader dataReader = base.GetTodos();
             if (dataReader.HasRows)
             {
                 while (dataReader.Read())
                 {
-                    Morador morador = new Morador();
-                    morador.Id = (int)dataReader[0];
-                    morador.Id_condominio = (int)dataReader[1];
-                    morador.Nome = (String)dataReader[2];
-                    morador.Cpf = (String)dataReader[3];
-                    morador.Rg = (String)dataReader[4];
-                    morador.Numero_apt = (int)dataReader[5];
-
-                    listMorador.Add(morador);
+                    list.Add(this.PreencherObjeto(dataReader));
                 }
             }
 
-            return listMorador;
+            return list;
         }
+
+        private Morador PreencherObjeto(NpgsqlDataReader dataReader)
+        {
+            int i = 0;
+            Morador obj = new Morador();
+            obj.Id = dataReader.GetInt32(i++);
+            obj.Id_condominio = dataReader.GetInt32(i++);
+            obj.Nome = dataReader.GetString(i++);
+            obj.Cpf = dataReader.GetString(i++);
+            obj.Rg = dataReader.GetString(i++);
+            obj.Numero_apt = dataReader.GetInt32(i++);
+
+            return obj;
+        }
+
     }
 }
