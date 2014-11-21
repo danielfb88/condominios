@@ -54,7 +54,14 @@ namespace condominios.DAO
             builder.Append(";");
 
             this.LastQuery = builder.ToString();
-            return this.update(builder.ToString());
+            bool retornoOk = this.update(builder.ToString());
+
+            /*
+             * Fechando
+             * */
+            this.CloseCon();
+
+            return retornoOk;
         }
 
         public int GetQuantidadeRegistros()
@@ -74,6 +81,12 @@ namespace condominios.DAO
                 qtdRegistros = Convert.ToInt32(dataReader[0]);
             }
 
+            /*
+             * Fechando
+             * */
+            dataReader.Close();
+            this.CloseCon();
+
             return qtdRegistros;
         }
 
@@ -86,6 +99,11 @@ namespace condominios.DAO
         {
             this.LastQuery = query;
             return this.update(query.ToString());
+        }
+
+        public void CloseCon()
+        {
+            Conn.GetInstance().CloseConn();
         }
     }
 }

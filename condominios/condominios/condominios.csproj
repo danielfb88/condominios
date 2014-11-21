@@ -175,6 +175,8 @@
     <Content Include="FrmFuncionario.aspx" />
     <Content Include="frmLogin.aspx" />
     <Content Include="FrmMorador.aspx" />
+    <Content Include="FrmRelatorioCondominio.aspx" />
+    <Content Include="FrmRelatorioMorador.aspx" />
     <Content Include="FrmSindico.aspx" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\facebook.png" />
@@ -374,6 +376,20 @@
     </Compile>
     <Compile Include="FrmMorador.aspx.designer.cs">
       <DependentUpon>FrmMorador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelatorioCondominio.aspx.cs">
+      <DependentUpon>FrmRelatorioCondominio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmRelatorioCondominio.aspx.designer.cs">
+      <DependentUpon>FrmRelatorioCondominio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRelatorioMorador.aspx.cs">
+      <DependentUpon>FrmRelatorioMorador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmRelatorioMorador.aspx.designer.cs">
+      <DependentUpon>FrmRelatorioMorador.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmSindico.aspx.cs">
       <DependentUpon>FrmSindico.aspx</DependentUpon>

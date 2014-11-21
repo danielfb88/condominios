@@ -84,5 +84,11 @@ namespace condominios.Conexao
 
             return dataReader;
         }
+
+        public void CloseConn()
+        {
+            this.conn.Close();
+        }
+
     }
 }

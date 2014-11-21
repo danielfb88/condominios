@@ -282,7 +282,7 @@ namespace condominios.Tests
         public void ConsultaValoresCondominio()
         {
             RelatorioDAO relatorioDao = new RelatorioDAO();
-            List<String[]> list = relatorioDao.RelatorioValoresCondominio();
+            List<String[]> list = relatorioDao.RelatorioValoresCondominio2();
 
             float somatorio = 0;
             foreach(String[] linha in list) {

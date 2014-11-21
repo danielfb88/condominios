@@ -10,7 +10,7 @@ namespace condominios.DAO
     public class RelatorioDAO : DAOGenerico
     {
         /* Uso de Procedure */
-        public List<String[]> RelatorioValoresCondominio()
+        public NpgsqlDataReader RelatorioValoresCondominio()
         {
             List<String[]> list = new List<String[]>();
             StringBuilder builder = new StringBuilder();
@@ -24,27 +24,10 @@ namespace condominios.DAO
             builder.Append("FROM condominio ");
             builder.Append(";");
 
-            NpgsqlDataReader dataReader = this.Fetch(builder.ToString());
-
-            if (dataReader.HasRows)
-            {
-                while (dataReader.Read())
-                {
-                    String[] linha = new String[5];
-                    linha[0] = Convert.ToString(dataReader.GetValue(0));
-                    linha[1] = Convert.ToString(dataReader.GetValue(1));
-                    linha[2] = Convert.ToString(dataReader.GetValue(2));
-                    linha[3] = Convert.ToString(dataReader.GetValue(3));
-                    linha[4] = Convert.ToString(dataReader.GetValue(4));
-
-                    list.Add(linha);
-                }
-            }
-
-            return list;
+            return this.Fetch(builder.ToString());
         }
 
-        public List<String[]> RelatorioMoradoresInadimplentes()
+        public NpgsqlDataReader RelatorioMoradoresInadimplentes()
         {
             List<String[]> list = new List<String[]>();
             StringBuilder builder = new StringBuilder();
@@ -58,26 +41,7 @@ namespace condominios.DAO
             builder.Append("WHERE adimplente = 0 ");
             builder.Append(";");
 
-            NpgsqlDataReader dataReader = this.Fetch(builder.ToString());
-
-            if (dataReader.HasRows)
-            {
-                while (dataReader.Read())
-                {
-                    String[] linha = new String[3];
-                    linha[0] = Convert.ToString(dataReader.GetValue(0));
-                    linha[1] = Convert.ToString(dataReader.GetValue(1));
-                    linha[2] = Convert.ToString(dataReader.GetValue(2));
-
-                    list.Add(linha);
-                }
-            }
-
-            return list;
+            return this.Fetch(builder.ToString());
         }
-
-
-    }
-
-    
+    }    
 }

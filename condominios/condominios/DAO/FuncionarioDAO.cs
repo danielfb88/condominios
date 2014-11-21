@@ -87,6 +87,12 @@ namespace condominios.DAO
                 obj = this.PreencherObjeto(dataReader);
             }
 
+            /*
+             * Fechando
+             * */
+            dataReader.Close();
+            this.CloseCon();
+
             return obj;
         }
 
@@ -102,6 +108,12 @@ namespace condominios.DAO
                     list.Add(this.PreencherObjeto(dataReader));
                 }
             }
+
+            /*
+             * Fechando
+             * */
+            dataReader.Close();
+            this.CloseCon();
 
             return list;
         }
