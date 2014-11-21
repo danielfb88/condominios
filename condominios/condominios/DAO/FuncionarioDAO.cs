@@ -116,7 +116,6 @@ namespace condominios.DAO
             obj.Nome = dataReader.GetString(i++);
             obj.Cpf = dataReader.GetString(i++);
             obj.Rg = dataReader.GetString(i++);
-            obj.Nome = dataReader.GetString(i++);
 
             return obj;
         }

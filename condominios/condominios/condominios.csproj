@@ -171,7 +171,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="forms\cadastro\FrmCadFuncionario.aspx" />
     <Content Include="FrmCondominio.aspx" />
+    <Content Include="FrmEndereco.aspx" />
+    <Content Include="FrmFuncionario.aspx" />
     <Content Include="frmLogin.aspx" />
+    <Content Include="FrmMorador.aspx" />
+    <Content Include="FrmSindico.aspx" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\facebook.png" />
     <Content Include="images\graphic.jpg" />
@@ -343,12 +347,40 @@
     <Compile Include="FrmCondominio.aspx.designer.cs">
       <DependentUpon>FrmCondominio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmEndereco.aspx.cs">
+      <DependentUpon>FrmEndereco.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmEndereco.aspx.designer.cs">
+      <DependentUpon>FrmEndereco.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFuncionario.aspx.cs">
+      <DependentUpon>FrmFuncionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmFuncionario.aspx.designer.cs">
+      <DependentUpon>FrmFuncionario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.aspx.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="frmLogin.aspx.designer.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMorador.aspx.cs">
+      <DependentUpon>FrmMorador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmMorador.aspx.designer.cs">
+      <DependentUpon>FrmMorador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSindico.aspx.cs">
+      <DependentUpon>FrmSindico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmSindico.aspx.designer.cs">
+      <DependentUpon>FrmSindico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -51,7 +51,7 @@ namespace condominios.Conexao
             }
             finally
             {
-                conn.Close();
+                //conn.Close();
             }
 
             return retornoOk;
