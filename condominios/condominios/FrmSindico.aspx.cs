@@ -55,9 +55,9 @@ namespace condominios
             if (!Page.IsPostBack)
             {
                 this.carregarDropDownList();
+                this.carregarGrid();
             }
 
-            this.carregarGrid();
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)

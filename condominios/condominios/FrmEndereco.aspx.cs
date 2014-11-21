@@ -28,10 +28,9 @@ namespace condominios
         {
             if (!Page.IsPostBack)
             {
-                
+                this.carregarGrid();                
             }
 
-            this.carregarGrid();
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
