@@ -1,4 +1,5 @@
 ﻿using condominios.DAO;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,17 @@ namespace condominios
         {
             if (!Page.IsPostBack)
             {
-                gridView1.DataSource = new RelatorioDAO().RelatorioMoradoresInadimplentes();
+                RelatorioDAO dao = new RelatorioDAO();
+                NpgsqlDataReader dataReader = new RelatorioDAO().RelatorioMoradoresInadimplentes();
+
+                gridView1.DataSource = dao.RelatorioMoradoresInadimplentes();
                 gridView1.DataBind();
+
+                /*
+                 * Fechando
+                 * */
+                dataReader.Close();
+                dao.CloseCon();
             }
         }
     }
